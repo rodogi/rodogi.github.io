@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>http://example.org/</loc>
+    <lastmod>2020-09-10T00:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/research/gender-networks/</loc>
+    <lastmod>2020-09-10T00:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/research/gene-coexpression/</loc>
+    <lastmod>2020-09-10T00:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/research/polarization/</loc>
+    <lastmod>2020-09-10T00:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/research/protein-networks/</loc>
+    <lastmod>2020-09-10T00:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/research/public-procurement/</loc>
+    <lastmod>2020-09-10T00:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/research/</loc>
+    <lastmod>2020-09-10T00:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/post/taxes/</loc>
+    <lastmod>2019-10-02T00:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/post/</loc>
+    <lastmod>2019-10-02T00:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/post/sni/</loc>
+    <lastmod>2019-09-28T00:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/post/config/</loc>
+    <lastmod>2019-09-26T00:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/post/el_pais/</loc>
+    <lastmod>2019-07-22T00:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/post/graph-tool/</loc>
+    <lastmod>2019-06-26T00:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/post/pandas_network/</loc>
+    <lastmod>2019-05-15T00:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/post/networkx_arrows/</loc>
+    <lastmod>2018-05-29T00:00:00-05:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/post/python-fold/</loc>
+    <lastmod>2018-03-19T00:00:00-06:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://example.org/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>http://example.org/tags/</loc>
+  </url>
+  
+</urlset>

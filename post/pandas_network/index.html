@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+  <title>Using pandas for network analysis | Hola!</title>
+
+  <meta charset="UTF-8">
+  <meta name="language" content="en">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+  
+  
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Using pandas for network analysis" />
+  <meta name="twitter:description" content=""/>
+  <meta name="twitter:site" content="https://twitter.com/ruydg" />
+  <meta name="twitter:creator" content="https://twitter.com/ruydg" />
+  
+
+  <link rel="shortcut icon" type="image/png" href="http://example.org/favicon.ico" />
+
+  
+  
+    
+ 
+  
+  
+  
+  
+  
+  
+    
+    <link type="text/css" rel="stylesheet" href="http://example.org/css/post.min.2cb93c91050d1853bf971cc31e00122edd6e0f405aa1de3b7f8ef67ea3b5a79a.css" integrity="sha256-LLk8kQUNGFO/lxzDHgASLt1uD0Baod47f472fqO1p5o="/>
+  
+    
+    <link type="text/css" rel="stylesheet" href="http://example.org/css/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU="/>
+  
+  
+   
+   
+    
+
+<script type="application/ld+json">
+  
+    { 
+      "@context": "http://schema.org", 
+      "@type": "WebSite", 
+      "url": "http:\/\/example.org\/post\/pandas_network\/",
+      "name": "Using pandas for network analysis",
+      "author": {
+        "@type": "Person",
+        "name": ""
+      },
+      "description": ""
+    }
+  
+  </script>
+</head>
+
+<body>
+  <div class="burger__container">
+  <div class="burger" aria-controls="navigation" aria-label="Menu">
+    <div class="burger__meat burger__meat--1"></div>
+    <div class="burger__meat burger__meat--2"></div>
+    <div class="burger__meat burger__meat--3"></div>
+  </div>
+</div>
+ 
+
+  <nav class="nav" id="navigation">
+  <ul class="nav__list">
+    
+    
+      <li>
+        <a  href="http://example.org/post">Blog</a>
+      </li>
+    
+      <li>
+        <a  href="http://example.org/resume/resume.pdf">Résumé</a>
+      </li>
+    
+      <li>
+        <a  href="http://example.org/">Home</a>
+      </li>
+    
+      <li>
+        <a  href="http://example.org/research">Research</a>
+      </li>
+    
+  </ul>
+</nav>
+
+
+  <main>
+    
+    
+
+    <div class="flex-wrapper">
+      <div class="post__container">
+        <div class="post">
+          <header class="post__header">
+            <h1 id="post__title">Using pandas for network analysis</h1>
+            <time datetime="2019-05-15 00:00:00 -0500 CDT" class="post__date">May 15 2019</time> 
+          </header>
+          <article class="post__content">
+              
+<h2 id="network-analysis">Network analysis<a class="anchor" href="#network-analysis">#</a></h2>
+<p><a href="https://networkx.github.io/">Networkx</a> is a well known python module for the analysis of networks. I used it a lot during my PhD
+for the creation of protein networks and to compare them. I stopped using it for a while after I moved
+to the industry as a data scientist.</p>
+<p>My job consisted 90% of the time to process data (pre-process, clean, feature creation, wrangling)
+before modeling anything. Pandas is indeed a data-analysis library for python, and a very good one.</p>
+<h2 id="problem">Problem<a class="anchor" href="#problem">#</a></h2>
+<p>I came back to the academy not so long ago to work on gene regulatory networks and decided to dust
+my networkx skills. When doing network analysis, it is often the goal to deal with the structure
+(or topology) of the network. For this, <code>networkx</code> is great.</p>
+<p>However, I need to deal also with the attributes of nodes and edges, with make the task more
+complex.</p>
+<p>For instance, a simple task like asking <code>networkx</code> what is the node with the maximum degree becomes
+this, where G is a network of size 20,000:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">degree_sequence <span style="color:#f92672">=</span> sorted([d <span style="color:#66d9ef">for</span> n, d <span style="color:#f92672">in</span> G<span style="color:#f92672">.</span>degree()], reverse<span style="color:#f92672">=</span>True)
+dmax <span style="color:#f92672">=</span> max(degree_sequence)
+</code></pre></div><p>Or if we want to know the name of the node as well:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">nmax, dmax <span style="color:#f92672">=</span> sorted(G<span style="color:#f92672">.</span>degree, key<span style="color:#f92672">=</span><span style="color:#66d9ef">lambda</span> x: x[<span style="color:#ae81ff">1</span>], reverse<span style="color:#f92672">=</span>True)[<span style="color:#ae81ff">0</span>]
+</code></pre></div><p>In my opinion, both ways are a bit too verbose for such an important network parameter.</p>
+<h2 id="pandas-to-the-rescue">Pandas to the rescue<a class="anchor" href="#pandas-to-the-rescue">#</a></h2>
+<p>To get the max degree of network, we used G.degree which is a <code>DegreeView</code> class in networkx: a
+dict-like structure. Other classes like <code>DegreeView</code> are:</p>
+<ul>
+<li><code>NodeView</code></li>
+<li><code>EdgeView</code></li>
+<li><code>NodeDataView</code></li>
+<li><code>EdgeDataView</code></li>
+</ul>
+<p>As you can see, dict-like structures are the way to view the network attributes in
+networkx. Dict-like structures are not optimal for data analysis, but they are just fine to define a
+pandas dataframe with little code:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> pandas <span style="color:#f92672">as</span> pd
+
+<span style="color:#75715e"># data frame with edgelist</span>
+df_edges <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame(G<span style="color:#f92672">.</span>edges(), columns<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;node_1&#34;</span>, <span style="color:#e6db74">&#34;node_2&#34;</span>])
+
+<span style="color:#75715e"># data frame with edgelist + edge attributes</span>
+df_edges_data <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame(G<span style="color:#f92672">.</span>edges(data<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;weight&#34;</span>), columns<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;node_1&#34;</span>, <span style="color:#e6db74">&#34;node_2&#34;</span>, <span style="color:#e6db74">&#34;weight&#34;</span>])
+
+<span style="color:#75715e"># degree dataframe</span>
+df_degree <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame(G<span style="color:#f92672">.</span>degree(), columns<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;node&#34;</span>, <span style="color:#e6db74">&#34;degree&#34;</span>])
+
+<span style="color:#75715e"># weighted degree dataframe</span>
+df_weighted_degree <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame(G<span style="color:#f92672">.</span>degree(weight<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;weight&#34;</span>), columns<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;node&#34;</span>, <span style="color:#e6db74">&#34;weighted degree&#34;</span>])
+</code></pre></div>
+
+              
+          </article>
+          
+
+ <div class="pagination">
+  
+    <a class="pagination__item" href="http://example.org/post/networkx_arrows/">
+        <span class="pagination__label">Previous Post</span>
+        <span class="pagination__title">Adding arrows to networkx</span>
+    </a>
+  
+
+  
+    <a class="pagination__item" href="http://example.org/post/graph-tool/">
+      <span class="pagination__label">Next Post</span>
+      <span class="pagination__title" >Create a network with Graph-tool and Pandas</a>
+    </a>
+  
+</div>
+
+          
+          <footer class="post__footer">
+            
+
+
+<div class="social-icons">
+  
+     
+    
+      <a class="social-icons__link" title="twitter"
+         href="https://twitter.com/ruydg"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('http://example.org/svg/twitter.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" title="github"
+         href="https://github.com/rodogi"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('http://example.org/svg/github.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a class="social-icons__link" title="scholar"
+         href="https://scholar.google.com/citations?user=Qe5ab4gAAAAJ&amp;hl=en"
+         target="_blank" rel="noopener">
+        <div class="social-icons__icon" style="background-image: url('http://example.org/svg/scholar.svg')"></div>
+      </a>
+    
+     
+</div>
+
+            <p>RDG 2020</p>
+          </footer>
+          </div>
+      </div>
+      
+    </div>
+    
+
+  </main>
+
+   
+
+  
+  <script src="http://example.org/js/index.min.49e4d8a384357d9b445b87371863419937ede9fa77737522ffb633073aebfa44.js" integrity="sha256-SeTYo4Q1fZtEW4c3GGNBmTft6fp3c3Ui/7YzBzrr&#43;kQ=" crossorigin="anonymous"></script>
+  
+  
+  <script src="https://unpkg.com/prismjs@1.20.0/components/prism-core.min.js"></script>
+
+  
+  <script src="https://unpkg.com/prismjs@1.20.0/plugins/autoloader/prism-autoloader.min.js"
+    data-autoloader-path="https://unpkg.com/prismjs@1.20.0/components/"></script>
+
+  
+
+
+</body>
+
+</html>

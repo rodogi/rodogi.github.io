@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Researches on Hola!</title>
+    <link>http://example.org/research/</link>
+    <description>Recent content in Researches on Hola!</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>RDG 2020</copyright>
+    <lastBuildDate>Thu, 10 Sep 2020 00:00:00 -0500</lastBuildDate>
+    
+	<atom:link href="http://example.org/research/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Gender networks in research (Social)</title>
+      <link>http://example.org/research/gender-networks/</link>
+      <pubDate>Thu, 10 Sep 2020 00:00:00 -0500</pubDate>
+      
+      <guid>http://example.org/research/gender-networks/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Gene co-expression networks (Bio)</title>
+      <link>http://example.org/research/gene-coexpression/</link>
+      <pubDate>Thu, 10 Sep 2020 00:00:00 -0500</pubDate>
+      
+      <guid>http://example.org/research/gene-coexpression/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Polarization in social networks (Social)</title>
+      <link>http://example.org/research/polarization/</link>
+      <pubDate>Thu, 10 Sep 2020 00:00:00 -0500</pubDate>
+      
+      <guid>http://example.org/research/polarization/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Protein networks (Bio)</title>
+      <link>http://example.org/research/protein-networks/</link>
+      <pubDate>Thu, 10 Sep 2020 00:00:00 -0500</pubDate>
+      
+      <guid>http://example.org/research/protein-networks/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Public procurement networks (Social)</title>
+      <link>http://example.org/research/public-procurement/</link>
+      <pubDate>Thu, 10 Sep 2020 00:00:00 -0500</pubDate>
+      
+      <guid>http://example.org/research/public-procurement/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
