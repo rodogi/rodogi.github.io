@@ -2,42 +2,42 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Hola!</title>
-    <link>http://example.org/post/</link>
+    <link>https://rodogi.github.io/post/</link>
     <description>Recent content in Posts on Hola!</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>RDG 2020</copyright>
     <lastBuildDate>Wed, 02 Oct 2019 00:00:00 -0500</lastBuildDate>
     
-	<atom:link href="http://example.org/post/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://rodogi.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>I forgive your taxes</title>
-      <link>http://example.org/post/taxes/</link>
+      <link>https://rodogi.github.io/post/taxes/</link>
       <pubDate>Wed, 02 Oct 2019 00:00:00 -0500</pubDate>
       
-      <guid>http://example.org/post/taxes/</guid>
+      <guid>https://rodogi.github.io/post/taxes/</guid>
       <description>Overall My Friend and mentor Chucho told me about a table of people who&amp;rsquo;s taxes were forgiven between 2007&amp;ndash;2019 in Mexico came public recently. The information was compiled by Mexican association Fundar, and it includes the year of the tax exemption, the amount and the entity. Tax exemptions are classified in two types: cancellation and reduction.
 Here, I focus on real people and tax reductions. Another analysis should be made including tax cancellation and private companies.</description>
     </item>
     
     <item>
       <title>A quick look at the Mexican national system of researchers with Python</title>
-      <link>http://example.org/post/sni/</link>
+      <link>https://rodogi.github.io/post/sni/</link>
       <pubDate>Sat, 28 Sep 2019 00:00:00 -0500</pubDate>
       
-      <guid>http://example.org/post/sni/</guid>
+      <guid>https://rodogi.github.io/post/sni/</guid>
       <description>SNI The national system of researchers (Sistema Nacional de Investigadores) or SNI is a mexican public organization that aims at boosting national research by giving grants to outstanding researchers working in the country.
 It was founded in 1984 and since then, it has been a key component of the Mexican science. Yesterday, the SNI published the list of accepted, renewed, or upgraded candidates in 2019. It did so in a PDF format that you can find here.</description>
     </item>
     
     <item>
       <title>Emacs config file</title>
-      <link>http://example.org/post/config/</link>
+      <link>https://rodogi.github.io/post/config/</link>
       <pubDate>Thu, 26 Sep 2019 00:00:00 -0500</pubDate>
       
-      <guid>http://example.org/post/config/</guid>
+      <guid>https://rodogi.github.io/post/config/</guid>
       <description>I recently went for a full migration to an org file, and things be said, my config file looks way more tidy. I recommend to make the change to have a more literal programming kind of init file.
 This file is of course continuously being updated, you can see the updated version here.
 Personal info (setq user-full-name &amp;#34;Rodrigo Dorantes Gilardi&amp;#34; user-mail-address &amp;#34;rodgdor@gmail.com&amp;#34; calendar-latitude 19.4326 calendar-longitude -99.13 calendar-location-name &amp;#34;Mexico City&amp;#34;) use-package This configuration is inspired by Harry Schwartz config file.</description>
@@ -45,20 +45,20 @@ Personal info (setq user-full-name &amp;#34;Rodrigo Dorantes Gilardi&amp;#34; us
     
     <item>
       <title>What cities appear more often in El País articles?</title>
-      <link>http://example.org/post/el_pais/</link>
+      <link>https://rodogi.github.io/post/el_pais/</link>
       <pubDate>Mon, 22 Jul 2019 00:00:00 -0500</pubDate>
       
-      <guid>http://example.org/post/el_pais/</guid>
+      <guid>https://rodogi.github.io/post/el_pais/</guid>
       <description>Introduction El País is one of the most well-known newspapers in the Hispanic world. Personally, it is one of my favorites as its American (Latin American) version has news from all over the region (I live in Mexico).
 I&amp;rsquo;ve been an `El País&amp;rsquo; reader for a few years now, and I can&amp;rsquo;t help but notice that the Latin American version is not that well balanced. Indeed, most of the articles I see on their front page come from Mexico.</description>
     </item>
     
     <item>
       <title>Create a network with Graph-tool and Pandas</title>
-      <link>http://example.org/post/graph-tool/</link>
+      <link>https://rodogi.github.io/post/graph-tool/</link>
       <pubDate>Wed, 26 Jun 2019 00:00:00 -0500</pubDate>
       
-      <guid>http://example.org/post/graph-tool/</guid>
+      <guid>https://rodogi.github.io/post/graph-tool/</guid>
       <description>Graph-tool Recently, I discovered the python package graph-tool for network analysis. The advantage of graph-tool over the very popular networkx is the speed, as said by its creator:
 Some other really cool features (besides speed) of graph-tool are:
  Filters and views get subgraphs without creating a new python object Interactive drawing Beautiful layouts Topological algorithms  Cons:
@@ -67,20 +67,20 @@ Some other really cool features (besides speed) of graph-tool are:
     
     <item>
       <title>Using pandas for network analysis</title>
-      <link>http://example.org/post/pandas_network/</link>
+      <link>https://rodogi.github.io/post/pandas_network/</link>
       <pubDate>Wed, 15 May 2019 00:00:00 -0500</pubDate>
       
-      <guid>http://example.org/post/pandas_network/</guid>
+      <guid>https://rodogi.github.io/post/pandas_network/</guid>
       <description>Network analysis Networkx is a well known python module for the analysis of networks. I used it a lot during my PhD for the creation of protein networks and to compare them. I stopped using it for a while after I moved to the industry as a data scientist.
 My job consisted 90% of the time to process data (pre-process, clean, feature creation, wrangling) before modeling anything. Pandas is indeed a data-analysis library for python, and a very good one.</description>
     </item>
     
     <item>
       <title>Adding arrows to networkx</title>
-      <link>http://example.org/post/networkx_arrows/</link>
+      <link>https://rodogi.github.io/post/networkx_arrows/</link>
       <pubDate>Tue, 29 May 2018 00:00:00 -0500</pubDate>
       
-      <guid>http://example.org/post/networkx_arrows/</guid>
+      <guid>https://rodogi.github.io/post/networkx_arrows/</guid>
       <description>No arrows in networkx Believe it or not, the popular network package networkx didn&amp;rsquo;t have arrows to draw directed networks. Instead, it used some ugly rectangles to indicate direction.
 Networkx is a package that I use regularly, and I wanted to contribute to the open source community that had given me so much, so I decided to implement the arrows.
 Before, a network would look like this:
@@ -89,10 +89,10 @@ Before, a network would look like this:
     
     <item>
       <title>Folding python code in Emacs</title>
-      <link>http://example.org/post/python-fold/</link>
+      <link>https://rodogi.github.io/post/python-fold/</link>
       <pubDate>Mon, 19 Mar 2018 00:00:00 -0600</pubDate>
       
-      <guid>http://example.org/post/python-fold/</guid>
+      <guid>https://rodogi.github.io/post/python-fold/</guid>
       <description>Purpose  I use python in my every-day work and I&amp;rsquo;m starting to use (and love) Emacs. I use vimish-folding package to fold code in Emacs. It allows you to define your own foldings and remembers them for the next time you open the file. Comming from vim I miss having my functions and classes folded out-of-the-box. Unfortunately you don&amp;rsquo;t have that in vimish-folding, but it&amp;rsquo;s easy to implemented a function to do just that: Fold every code-block in your buffer.</description>
     </item>
     
