@@ -34,7 +34,7 @@
   
   
     
-    <link type="text/css" rel="stylesheet" href="https://rodogi.github.io/css/post.min.2cb93c91050d1853bf971cc31e00122edd6e0f405aa1de3b7f8ef67ea3b5a79a.css" integrity="sha256-LLk8kQUNGFO/lxzDHgASLt1uD0Baod47f472fqO1p5o="/>
+    <link type="text/css" rel="stylesheet" href="https://rodogi.github.io/css/post.min.cf9fc2bb1051149a5300637ded1a73abbfb0419948306bfbe93ccdc8197d342b.css" integrity="sha256-z5/CuxBRFJpTAGN97Rpzq7&#43;wQZlIMGv76TzNyBl9NCs="/>
   
     
     <link type="text/css" rel="stylesheet" href="https://rodogi.github.io/css/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU="/>
@@ -123,15 +123,16 @@ come from Mexico.</p>
 <code>&quot;articulo-titulo&quot;</code> and the location of the article with class <code>&quot;articulo-localizacion&quot;</code> inside a
 <code>dev</code> tag.</p>
 <p>After getting the text from the article with:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> requests
-<span style="color:#f92672">from</span> bs4 <span style="color:#f92672">import</span> BeautifulSoup
+<pre><code class="language-python">import requests
+from bs4 import BeautifulSoup
 
-r <span style="color:#f92672">=</span> requests<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#39;https://elpais.com/elpais/portada_america.html&#39;</span>)
-soup <span style="color:#f92672">=</span> BeautifulSoup(r,text, <span style="color:#e6db74">&#39;html&#39;</span>)
+r = requests.get('https://elpais.com/elpais/portada_america.html')
+soup = BeautifulSoup(r,text, 'html')
 
-articles <span style="color:#f92672">=</span> soup<span style="color:#f92672">.</span>find_all(<span style="color:#e6db74">&#39;article&#39;</span>, attrs<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;class&#39;</span>: <span style="color:#e6db74">&#39;articulo&#39;</span>})
-loc <span style="color:#f92672">=</span> soup<span style="color:#f92672">.</span>find_all(<span style="color:#e6db74">&#39;span&#39;</span>, attrs<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;class&#39;</span>: <span style="color:#e6db74">&#39;articulo-localizacion&#39;</span>})
-</code></pre></div><p>Using <code>calendar</code> and doing the proper formatting for months and days, it&rsquo;s easy to parse through a
+articles = soup.find_all('article', attrs={'class': 'articulo'})
+loc = soup.find_all('span', attrs={'class': 'articulo-localizacion'})
+</code></pre>
+<p>Using <code>calendar</code> and doing the proper formatting for months and days, it&rsquo;s easy to parse through a
 year of front-page articles. The resulting 33,285 articles contain:</p>
 <ol>
 <li>17,368 <strong>not found</strong> locations</li>

@@ -34,7 +34,7 @@
   
   
     
-    <link type="text/css" rel="stylesheet" href="https://rodogi.github.io/css/post.min.2cb93c91050d1853bf971cc31e00122edd6e0f405aa1de3b7f8ef67ea3b5a79a.css" integrity="sha256-LLk8kQUNGFO/lxzDHgASLt1uD0Baod47f472fqO1p5o="/>
+    <link type="text/css" rel="stylesheet" href="https://rodogi.github.io/css/post.min.cf9fc2bb1051149a5300637ded1a73abbfb0419948306bfbe93ccdc8197d342b.css" integrity="sha256-z5/CuxBRFJpTAGN97Rpzq7&#43;wQZlIMGv76TzNyBl9NCs="/>
   
     
     <link type="text/css" rel="stylesheet" href="https://rodogi.github.io/css/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU="/>
@@ -122,11 +122,13 @@ my networkx skills. When doing network analysis, it is often the goal to deal wi
 complex.</p>
 <p>For instance, a simple task like asking <code>networkx</code> what is the node with the maximum degree becomes
 this, where G is a network of size 20,000:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">degree_sequence <span style="color:#f92672">=</span> sorted([d <span style="color:#66d9ef">for</span> n, d <span style="color:#f92672">in</span> G<span style="color:#f92672">.</span>degree()], reverse<span style="color:#f92672">=</span>True)
-dmax <span style="color:#f92672">=</span> max(degree_sequence)
-</code></pre></div><p>Or if we want to know the name of the node as well:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">nmax, dmax <span style="color:#f92672">=</span> sorted(G<span style="color:#f92672">.</span>degree, key<span style="color:#f92672">=</span><span style="color:#66d9ef">lambda</span> x: x[<span style="color:#ae81ff">1</span>], reverse<span style="color:#f92672">=</span>True)[<span style="color:#ae81ff">0</span>]
-</code></pre></div><p>In my opinion, both ways are a bit too verbose for such an important network parameter.</p>
+<pre><code class="language-python">degree_sequence = sorted([d for n, d in G.degree()], reverse=True)
+dmax = max(degree_sequence)
+</code></pre>
+<p>Or if we want to know the name of the node as well:</p>
+<pre><code class="language-python">nmax, dmax = sorted(G.degree, key=lambda x: x[1], reverse=True)[0]
+</code></pre>
+<p>In my opinion, both ways are a bit too verbose for such an important network parameter.</p>
 <h2 id="pandas-to-the-rescue">Pandas to the rescue<a class="anchor" href="#pandas-to-the-rescue">#</a></h2>
 <p>To get the max degree of network, we used G.degree which is a <code>DegreeView</code> class in networkx: a
 dict-like structure. Other classes like <code>DegreeView</code> are:</p>
@@ -139,20 +141,21 @@ dict-like structure. Other classes like <code>DegreeView</code> are:</p>
 <p>As you can see, dict-like structures are the way to view the network attributes in
 networkx. Dict-like structures are not optimal for data analysis, but they are just fine to define a
 pandas dataframe with little code:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> pandas <span style="color:#f92672">as</span> pd
+<pre><code class="language-python">import pandas as pd
 
-<span style="color:#75715e"># data frame with edgelist</span>
-df_edges <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame(G<span style="color:#f92672">.</span>edges(), columns<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;node_1&#34;</span>, <span style="color:#e6db74">&#34;node_2&#34;</span>])
+# data frame with edgelist
+df_edges = pd.DataFrame(G.edges(), columns=[&quot;node_1&quot;, &quot;node_2&quot;])
 
-<span style="color:#75715e"># data frame with edgelist + edge attributes</span>
-df_edges_data <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame(G<span style="color:#f92672">.</span>edges(data<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;weight&#34;</span>), columns<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;node_1&#34;</span>, <span style="color:#e6db74">&#34;node_2&#34;</span>, <span style="color:#e6db74">&#34;weight&#34;</span>])
+# data frame with edgelist + edge attributes
+df_edges_data = pd.DataFrame(G.edges(data=&quot;weight&quot;), columns=[&quot;node_1&quot;, &quot;node_2&quot;, &quot;weight&quot;])
 
-<span style="color:#75715e"># degree dataframe</span>
-df_degree <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame(G<span style="color:#f92672">.</span>degree(), columns<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;node&#34;</span>, <span style="color:#e6db74">&#34;degree&#34;</span>])
+# degree dataframe
+df_degree = pd.DataFrame(G.degree(), columns=[&quot;node&quot;, &quot;degree&quot;])
 
-<span style="color:#75715e"># weighted degree dataframe</span>
-df_weighted_degree <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame(G<span style="color:#f92672">.</span>degree(weight<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;weight&#34;</span>), columns<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;node&#34;</span>, <span style="color:#e6db74">&#34;weighted degree&#34;</span>])
-</code></pre></div>
+# weighted degree dataframe
+df_weighted_degree = pd.DataFrame(G.degree(weight=&quot;weight&quot;), columns=[&quot;node&quot;, &quot;weighted degree&quot;])
+</code></pre>
+
 
               
           </article>

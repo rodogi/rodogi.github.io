@@ -34,7 +34,7 @@
   
   
     
-    <link type="text/css" rel="stylesheet" href="https://rodogi.github.io/css/post.min.2cb93c91050d1853bf971cc31e00122edd6e0f405aa1de3b7f8ef67ea3b5a79a.css" integrity="sha256-LLk8kQUNGFO/lxzDHgASLt1uD0Baod47f472fqO1p5o="/>
+    <link type="text/css" rel="stylesheet" href="https://rodogi.github.io/css/post.min.cf9fc2bb1051149a5300637ded1a73abbfb0419948306bfbe93ccdc8197d342b.css" integrity="sha256-z5/CuxBRFJpTAGN97Rpzq7&#43;wQZlIMGv76TzNyBl9NCs="/>
   
     
     <link type="text/css" rel="stylesheet" href="https://rodogi.github.io/css/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU="/>
@@ -169,39 +169,41 @@
 attributes (color and weight). Pandas is a python library for data analysis that focus on creating dataframes to work
 with tables. Here, we will be reading a table using pandas and converting it to a graph-tool <code>Graph</code>
 object.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> pandas <span style="color:#f92672">as</span> pd
-<span style="color:#f92672">import</span> graph_tool.all <span style="color:#f92672">as</span> gt
-<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+<pre><code class="language-python">import pandas as pd
+import graph_tool.all as gt
+import numpy as np
 
-<span style="color:#75715e"># Load table</span>
-df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#34;table.csv&#34;</span>)
+# Load table
+df = pd.read_csv(&quot;table.csv&quot;)
 
-g <span style="color:#f92672">=</span> gt<span style="color:#f92672">.</span>Graph()
-<span style="color:#75715e"># Set property maps for edge attributes</span>
-weight <span style="color:#f92672">=</span> g<span style="color:#f92672">.</span>new_edge_property(<span style="color:#e6db74">&#39;int&#39;</span>)
-color <span style="color:#f92672">=</span> g<span style="color:#f92672">.</span>new_edge_property(<span style="color:#e6db74">&#39;string&#39;</span>)
+g = gt.Graph()
+# Set property maps for edge attributes
+weight = g.new_edge_property('int')
+color = g.new_edge_property('string')
 
-<span style="color:#75715e"># Create numpy array of edgelist</span>
-edglist <span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>values
+# Create numpy array of edgelist
+edglist = df.values
 
-<span style="color:#75715e"># Add edges</span>
-node_id <span style="color:#f92672">=</span> g<span style="color:#f92672">.</span>add_edge_list(edgelist, hashed<span style="color:#f92672">=</span>True, eprops<span style="color:#f92672">=</span>[color, weight])
+# Add edges
+node_id = g.add_edge_list(edgelist, hashed=True, eprops=[color, weight])
 
-<span style="color:#75715e"># Access node id of each vertex</span>
-<span style="color:#66d9ef">for</span> node <span style="color:#f92672">in</span> range(g<span style="color:#f92672">.</span>num_vertices()):
-    <span style="color:#66d9ef">print</span>(<span style="color:#e6db74">&#34;Node {} has id: {}&#34;</span><span style="color:#f92672">.</span>format(node, node_id[node]))
+# Access node id of each vertex
+for node in range(g.num_vertices()):
+    print(&quot;Node {} has id: {}&quot;.format(node, node_id[node]))
 
-</code></pre></div><p>Now we are ready to use the nice algorithms of graph-tool. Before saving your network, remember to
+</code></pre>
+<p>Now we are ready to use the nice algorithms of graph-tool. Before saving your network, remember to
 also save the node ids or labels as an <strong>internal vertex property map</strong> of the graph:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">g<span style="color:#f92672">.</span>vertex_properties[<span style="color:#e6db74">&#39;node_id&#39;</span>] <span style="color:#f92672">=</span> node_id
+<pre><code class="language-python">g.vertex_properties['node_id'] = node_id
 
-<span style="color:#75715e"># Same with edge properties `color` and `weight`</span>
-g<span style="color:#f92672">.</span>edge_properties[<span style="color:#e6db74">&#39;color&#39;</span>] <span style="color:#f92672">=</span> color
-g<span style="color:#f92672">.</span>edge_properties[<span style="color:#e6db74">&#39;weight&#39;</span>] <span style="color:#f92672">=</span> weight
+# Same with edge properties `color` and `weight`
+g.edge_properties['color'] = color
+g.edge_properties['weight'] = weight
 
-<span style="color:#75715e"># Save graph</span>
-g<span style="color:#f92672">.</span>save(<span style="color:#e6db74">&#39;my_network.graphml&#39;</span>)
-</code></pre></div>
+# Save graph
+g.save('my_network.graphml')
+</code></pre>
+
 
               
           </article>

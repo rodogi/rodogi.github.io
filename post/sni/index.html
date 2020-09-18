@@ -34,7 +34,7 @@
   
   
     
-    <link type="text/css" rel="stylesheet" href="https://rodogi.github.io/css/post.min.2cb93c91050d1853bf971cc31e00122edd6e0f405aa1de3b7f8ef67ea3b5a79a.css" integrity="sha256-LLk8kQUNGFO/lxzDHgASLt1uD0Baod47f472fqO1p5o="/>
+    <link type="text/css" rel="stylesheet" href="https://rodogi.github.io/css/post.min.cf9fc2bb1051149a5300637ded1a73abbfb0419948306bfbe93ccdc8197d342b.css" integrity="sha256-z5/CuxBRFJpTAGN97Rpzq7&#43;wQZlIMGv76TzNyBl9NCs="/>
   
     
     <link type="text/css" rel="stylesheet" href="https://rodogi.github.io/css/custom.min.e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css" integrity="sha256-47DEQpj8HBSa&#43;/TImW&#43;5JCeuQeRkm5NMpJWZG3hSuFU="/>
@@ -119,39 +119,42 @@ list to see what is new under the sun.</p>
 <h2 id="basic-overview">Basic Overview<a class="anchor" href="#basic-overview">#</a></h2>
 <p>If we go to <a href="https://www.conacyt.gob.mx/index.php/el-conacyt/sistema-nacional-de-investigadores/archivo-historico">this link</a>, we can see the records of the actual researchers that are members in the
 SNI as of 2018. I&rsquo;ve downloaded this excel file in my <code>Downloads</code> folder and read it using pandas.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> pandas <span style="color:#f92672">as</span> pd
+<pre><code class="language-python">import pandas as pd
 
-df_all <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_excel(<span style="color:#e6db74">&#39;/Users/rdora/Downloads/BENEFICIARIOS_2018.xlsx&#39;</span>)
-<span style="color:#75715e"># Just take the first 14 columns</span>
-df_all <span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>iloc[:, <span style="color:#ae81ff">0</span>:<span style="color:#ae81ff">14</span>]
-<span style="color:#66d9ef">print</span>(df<span style="color:#f92672">.</span>shape)
-</code></pre></div><p>According to this, there are 28,633 SNI researchers. We&rsquo;ll keep this table for later.</p>
+df_all = pd.read_excel('/Users/rdora/Downloads/BENEFICIARIOS_2018.xlsx')
+# Just take the first 14 columns
+df_all = df.iloc[:, 0:14]
+print(df.shape)
+</code></pre>
+<p>According to this, there are 28,633 SNI researchers. We&rsquo;ll keep this table for later.</p>
 <h2 id="2019-stats">2019 Stats<a class="anchor" href="#2019-stats">#</a></h2>
 <p>On September 27, SNI published the list of accepted and kept candidates for 2019. This list is a bit
 more tricky to read as it is on a PDF file. Python can read tables on PDF files using a library
 called <code>tabula-py</code>, that you can install with <code>pip install tabula-py</code>. Later, you can read the file
 as follows.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">import</span> tabula
+<pre><code class="language-python">import tabula
 
-path <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/Users/rdora/Downloads/RESULTADOS_SNI_CONVOCATORIA_2019_INGRESO_O_PERMANENCIA.pdf&#34;</span>
-<span style="color:#75715e"># The file contains 203 pages</span>
-pages <span style="color:#f92672">=</span> range(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">204</span>)
-dfs <span style="color:#f92672">=</span> []
-<span style="color:#75715e"># We have to read each page individually</span>
-<span style="color:#66d9ef">for</span> page <span style="color:#f92672">in</span> pages:
-		df <span style="color:#f92672">=</span> tabula<span style="color:#f92672">.</span>read_pdf(path, pages<span style="color:#f92672">=</span>str(page))
-		dfs<span style="color:#f92672">.</span>append(df)
-df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>concat(dfs, axis<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>)
-df <span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>dropna()
-</code></pre></div><p>After reading the table, and doing some cleaning (reading from a PDF is not cool), we can see that
+path = &quot;/Users/rdora/Downloads/RESULTADOS_SNI_CONVOCATORIA_2019_INGRESO_O_PERMANENCIA.pdf&quot;
+# The file contains 203 pages
+pages = range(1, 204)
+dfs = []
+# We have to read each page individually
+for page in pages:
+		df = tabula.read_pdf(path, pages=str(page))
+		dfs.append(df)
+df = pd.concat(dfs, axis=0)
+df = df.dropna()
+</code></pre>
+<p>After reading the table, and doing some cleaning (reading from a PDF is not cool), we can see that
 there are 9,942 candidates with their SNI ID (defined by level of addition to the SNI), their name,
 and their distinction (SNI level, from candidate to SNI level 3).</p>
 <p>Let&rsquo;s get the number of new candidates.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">df_all[<span style="color:#e6db74">&#39;NAME&#39;</span>] <span style="color:#f92672">=</span> (df_all[<span style="color:#e6db74">&#39;PATERNO&#39;</span>] <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; &#34;</span> <span style="color:#f92672">+</span>
-								 df_all[<span style="color:#e6db74">&#39;MATERNO&#39;</span>] <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;,&#34;</span> <span style="color:#f92672">+</span>
-								 df_all[<span style="color:#e6db74">&#34;NOMBRE&#34;</span>])
-df_new <span style="color:#f92672">=</span> df[<span style="color:#f92672">~</span>df<span style="color:#f92672">.</span>NOMBRE<span style="color:#f92672">.</span>isin(df_all<span style="color:#f92672">.</span>NAME)]
-</code></pre></div><p>There are 5,338 new researchers in the SNI in 2019. Using this <code>pd.DataFrame</code> we can get the number
+<pre><code class="language-python">df_all['NAME'] = (df_all['PATERNO'] + &quot; &quot; +
+								 df_all['MATERNO'] + &quot;,&quot; +
+								 df_all[&quot;NOMBRE&quot;])
+df_new = df[~df.NOMBRE.isin(df_all.NAME)]
+</code></pre>
+<p>There are 5,338 new researchers in the SNI in 2019. Using this <code>pd.DataFrame</code> we can get the number
 of women and their distinction or level in the SNI. From these, 0.58 are Male and 0.42 are
 Female. The overall ratio of female researchers (without the new members) is 0.37.</p>
 <p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>

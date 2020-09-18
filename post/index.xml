@@ -40,7 +40,7 @@ It was founded in 1984 and since then, it has been a key component of the Mexica
       <guid>https://rodogi.github.io/post/config/</guid>
       <description>I recently went for a full migration to an org file, and things be said, my config file looks way more tidy. I recommend to make the change to have a more literal programming kind of init file.
 This file is of course continuously being updated, you can see the updated version here.
-Personal info (setq user-full-name &amp;#34;Rodrigo Dorantes Gilardi&amp;#34; user-mail-address &amp;#34;rodgdor@gmail.com&amp;#34; calendar-latitude 19.4326 calendar-longitude -99.13 calendar-location-name &amp;#34;Mexico City&amp;#34;) use-package This configuration is inspired by Harry Schwartz config file.</description>
+Personal info (setq user-full-name &amp;quot;Rodrigo Dorantes Gilardi&amp;quot; user-mail-address &amp;quot;rodgdor@gmail.com&amp;quot; calendar-latitude 19.4326 calendar-longitude -99.13 calendar-location-name &amp;quot;Mexico City&amp;quot;)  use-package This configuration is inspired by Harry Schwartz config file.</description>
     </item>
     
     <item>
