@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Researches on Rodrigo Dorantes Gilardi</title>
+    <link>http://localhost:1313/research/</link>
+    <description>Recent content in Researches on Rodrigo Dorantes Gilardi</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 15 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/research/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Biobanks</title>
+      <link>http://localhost:1313/research/biobanks/</link>
+      <pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/research/biobanks/</guid>
+      <description>&lt;p&gt;Scientific research is increasingly shaped by the collective efforts of vast repositories of health data and biological samples, which together form the foundation of biobanks. These biobanks serve as essential resources, supplying vast datasets for groundbreaking medical research aimed at understanding and treating complex diseases. In our work, we’ve explored over 2,600 biobanks and cataloged their presence across scientific literature, patents, clinical trials, grants, and policy documents to better understand the broad impact of these repositories. By tracing mentions and references across almost 230,000 documents, we’ve uncovered unique insights into the areas of science and innovation most frequently propelled by biobank data.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>BioTools</title>
+      <link>http://localhost:1313/research/biotools/</link>
+      <pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/research/biotools/</guid>
+      <description>&lt;p&gt;The heart of this project lies in mapping the often unseen yet transformative role of biomedical tools—what we term BioTools—in shaping scientific discovery and health innovations. BioTools include laboratory methods, modeling techniques, and software applications that facilitate scientific experiments and analyses, from detecting genetic variants to visualizing molecular structures. Despite their critical role, BioTools are frequently overlooked by traditional impact metrics, such as citation counts, leaving a significant gap in recognizing the scientists and research teams behind these innovations.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Public procurement networks</title>
+      <link>http://localhost:1313/research/procurement/</link>
+      <pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/research/procurement/</guid>
+      <description>&lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;&#xA;&lt;p&gt;Public procurement networks represent the complex relationships between government entities and private contractors. Our research focuses on understanding these relationships and their impact on public spending efficiency.&lt;/p&gt;&#xA;&lt;h3 id=&#34;key-findings&#34;&gt;Key Findings&lt;/h3&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Network structure reveals preferential attachments between certain contractors and government entities&lt;/li&gt;&#xA;&lt;li&gt;Community detection algorithms identify potential procurement clusters&lt;/li&gt;&#xA;&lt;li&gt;Temporal analysis shows evolution of procurement patterns&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/favs.png&#34; alt=&#34;Procurement Network Visualization&#34;&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;methodology&#34;&gt;Methodology&lt;/h3&gt;&#xA;&lt;p&gt;We applied several network analysis techniques:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Community detection&lt;/li&gt;&#xA;&lt;li&gt;Centrality measures&lt;/li&gt;&#xA;&lt;li&gt;Temporal evolution analysis&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Example code snippet&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; networkx &lt;span style=&#34;color:#66d9ef&#34;&gt;as&lt;/span&gt; nx&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;analyze_procurement_network&lt;/span&gt;(edges):&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    G &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; nx&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;Graph()&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    G&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;add_edges_from(edges)&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    communities &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; nx&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;community&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;louvain_communities(G)&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    centrality &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; nx&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;eigenvector_centrality(G)&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; communities, centrality&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;publications&#34;&gt;Publications&lt;/h3&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&amp;ldquo;Structure and dynamics of public procurement networks&amp;rdquo; (2023)&lt;/li&gt;&#xA;&lt;li&gt;&amp;ldquo;Temporal evolution of contractor relationships&amp;rdquo; (2024)&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h3 id=&#34;collaborators&#34;&gt;Collaborators&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Dr. Jane Smith (Harvard University)&lt;/li&gt;&#xA;&lt;li&gt;Prof. John Doe (MIT)&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>The venue effect</title>
+      <link>http://localhost:1313/research/venue/</link>
+      <pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/research/venue/</guid>
+      <description>&lt;p&gt;This project investigates the &amp;ldquo;venue effect,&amp;rdquo; a phenomenon where high-prestige publication or exhibition platforms significantly shape creative careers. By reconstructing the professional journeys of thousands of scientists and artists, we reveal how prominent venues influence future opportunities and recognition. We find that, while top venues amplify the careers of those granted access, they also reinforce existing inequalities, with benefits unevenly distributed across gender, geography, and career stage.&lt;/p&gt;&#xA;&lt;p&gt;Using large datasets and advanced statistical methods, we quantify this venue effect in both science and art. In science, top journals boost citations and productivity, particularly for mid-career and senior researchers. In the arts, prestigious biennials and exhibitions increase opportunities, especially for early-career artists, offering them greater visibility. This work provides a nuanced understanding of how selective access to prestigious venues shapes professional trajectories, highlighting the need for inclusive practices that can mitigate the reinforcement of these hierarchies.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Crime and urban landscape</title>
+      <link>http://localhost:1313/research/crime/</link>
+      <pubDate>Thu, 10 Sep 2020 00:00:00 -0500</pubDate>
+      <guid>http://localhost:1313/research/crime/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Polarization in social networks (Social)</title>
+      <link>http://localhost:1313/research/polarization/</link>
+      <pubDate>Thu, 10 Sep 2020 00:00:00 -0500</pubDate>
+      <guid>http://localhost:1313/research/polarization/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Gender networks</title>
+      <link>http://localhost:1313/research/gender-networks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/research/gender-networks/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Gene co-expression in breast cancer</title>
+      <link>http://localhost:1313/research/gene-coexpression/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/research/gene-coexpression/</guid>
+      <description>&lt;p&gt;In this study, we used a multilayer network approach to uncover fundamental structural principles in gene co-expression networks (GCNs) that are disrupted in breast cancer. By analyzing both healthy and cancerous gene co-expression networks, we identified key differences in connectivity patterns, revealing how healthy cells maintain a complex network of gene interactions across chromosomes. In contrast, the breast cancer network exhibits a loss of these inter-chromosomal connections, leading to a simpler, more localized structure confined largely to genes within the same chromosome.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Protein Structure</title>
+      <link>http://localhost:1313/research/protein-networks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/research/protein-networks/</guid>
+      <description>&lt;p&gt;This project looks into the structural and functional shifts in proteins caused by mutations, exploring how such changes impact protein behavior. By constructing detailed amino acid networks for five proteins, we analyzed how mutations at specific positions alter both structure and function, revealing a strong relationship between structural sensitivity and functional outcomes. Our approach combines network science with protein modeling, allowing us to predict functionally sensitive regions based solely on structural perturbations.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

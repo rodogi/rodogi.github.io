@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>
+        
+            Folding python code in Emacs - Rodrigo Dorantes Gilardi
+        
+    </title>
+    
+    
+    <link rel="stylesheet" href="/scss/custom.css">
+</head>
+  <body>
+    <nav>
+    <div class="container">
+      
+        <a href="/">Home</a>
+      
+        <a href="/research">Research</a>
+      
+        <a href="/resume/resume.pdf">CV</a>
+      
+    </div>
+  </nav>
+    <main>
+      
+    
+
+    <div class="flex-wrapper">
+      <div class="post__container">
+        <div class="post">
+          <header class="post__header">
+            <h1 id="post__title">Folding python code in Emacs</h1>
+            <time datetime="2018-03-19 00:00:00 -0600 CST" class="post__date">Mar 19 2018</time> 
+          </header>
+          <article class="post__content">
+              
+<h2 id="purpose">Purpose<a class="anchor" href="#purpose">#</a></h2>
+<ul>
+<li>I use python in my every-day work and I&rsquo;m starting to use (and
+love) Emacs.</li>
+<li>I use <code>vimish-folding</code> package to fold code in Emacs. It allows you
+to define your own foldings and remembers them for the next time you
+open the file.</li>
+<li>Comming from <strong>vim</strong> I miss having my functions and classes folded out-of-the-box.</li>
+<li>Unfortunately you don&rsquo;t have that in <code>vimish-folding</code>, but it&rsquo;s
+easy to implemented a function to do just that: Fold every code-block in
+your buffer.</li>
+</ul>
+<h2 id="the-function">The Function<a class="anchor" href="#the-function">#</a></h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span><span style="color:#75715e">;; Fold code-blocks in python</span>
+</span></span><span style="display:flex;"><span>(defun fold-python-blocks ()
+</span></span><span style="display:flex;"><span>  <span style="color:#e6db74">&#34;Fold all code blocks in python&#34;</span>
+</span></span><span style="display:flex;"><span>  (interactive)
+</span></span><span style="display:flex;"><span>  (<span style="color:#a6e22e">forward-word</span>) <span style="color:#75715e">; start with the second word</span>
+</span></span><span style="display:flex;"><span>  (setq p (<span style="color:#a6e22e">point</span>))
+</span></span><span style="display:flex;"><span>  (while (<span style="color:#a6e22e">forward-word</span>)
+</span></span><span style="display:flex;"><span>    (backward-word)
+</span></span><span style="display:flex;"><span>    (setq col (<span style="color:#a6e22e">current-column</span>))
+</span></span><span style="display:flex;"><span>    (<span style="color:#a6e22e">forward-word</span>)
+</span></span><span style="display:flex;"><span>    (if (<span style="color:#a6e22e">=</span> col <span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>	(progn
+</span></span><span style="display:flex;"><span>	  (setq p1 (<span style="color:#a6e22e">car</span> (bounds-of-thing-at-point <span style="color:#e6db74">&#39;word</span>)))
+</span></span><span style="display:flex;"><span>	  (vimish-fold p p1)
+</span></span><span style="display:flex;"><span>	  (setq p p1)
+</span></span><span style="display:flex;"><span>	  (<span style="color:#a6e22e">goto-char</span> p)
+</span></span><span style="display:flex;"><span>	  (<span style="color:#a6e22e">forward-word</span>))))
+</span></span><span style="display:flex;"><span>  (vimish-fold p (<span style="color:#a6e22e">buffer-size</span>))
+</span></span><span style="display:flex;"><span>  (<span style="color:#a6e22e">goto-char</span> <span style="color:#ae81ff">1</span>))
+</span></span></code></pre></div><div class="src-block-caption">
+  <span class="src-block-number">Code Snippet 1</span>:
+  Add the following code to your <code>init.el</code> file to fold code blocks in python.
+</div>
+<p>You can use the previous function by typing <code>M-x fold-python-blocks</code>. This will fold each code block in your file,
+including code out of functions and classes, for instance, after a
+sentence of the style:
+#+BEGIN_SRC python
+if <span class="underline"><span class="underline">name</span></span> == &ldquo;<span class="underline"><span class="underline">main</span></span>&rdquo;:
+#+END_SR</p>
+
+
+              
+          </article>
+          
+
+ <div class="pagination">
+  
+
+  
+    <a class="pagination__item" href="http://localhost:1313/post/networkx_arrows/">
+      <span class="pagination__label">Next Post</span>
+      <span class="pagination__title" >Adding arrows to networkx</span>
+    </a>
+  
+</div>
+
+          
+          <footer class="post__footer">
+            
+
+
+<div class="social-icons">
+  
+     
+    
+      <a
+        class="social-icons__link"
+        title="twitter"
+        href="https://twitter.com/ruydg"
+        target="_blank"
+        rel="me noopener"
+      >
+        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/twitter.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a
+        class="social-icons__link"
+        title="github"
+        href="https://github.com/rodogi"
+        target="_blank"
+        rel="me noopener"
+      >
+        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/github.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a
+        class="social-icons__link"
+        title="scholar"
+        href="https://scholar.google.com/citations?user=Qe5ab4gAAAAJ&amp;hl=en"
+        target="_blank"
+        rel="me noopener"
+      >
+        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/scholar.svg')"></div>
+      </a>
+    
+     
+</div>
+
+            <p></p>
+          </footer>
+          </div>
+      </div>
+      
+    </div>
+    
+
+    </main>
+    <footer>
+    <div class="container">
+      <p>© 2024 Rodrigo Dorantes Gilardi. All rights reserved.</p>
+    </div>
+  </footer>
+  </body>
+</html>

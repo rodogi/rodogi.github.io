@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>
+        
+            What cities appear more often in El País articles? - Rodrigo Dorantes Gilardi
+        
+    </title>
+    
+    
+    <link rel="stylesheet" href="/scss/custom.css">
+</head>
+  <body>
+    <nav>
+    <div class="container">
+      
+        <a href="/">Home</a>
+      
+        <a href="/research">Research</a>
+      
+        <a href="/resume/resume.pdf">CV</a>
+      
+    </div>
+  </nav>
+    <main>
+      
+    
+
+    <div class="flex-wrapper">
+      <div class="post__container">
+        <div class="post">
+          <header class="post__header">
+            <h1 id="post__title">What cities appear more often in El País articles?</h1>
+            <time datetime="2019-07-22 00:00:00 -0500 CDT" class="post__date">Jul 22 2019</time> 
+          </header>
+          <article class="post__content">
+              
+<h2 id="introduction">Introduction<a class="anchor" href="#introduction">#</a></h2>
+<p>El País is one of the most well-known newspapers in the Hispanic world. Personally, it is one of
+my favorites as its American (Latin American) version has news from all over the region (I live in
+Mexico).</p>
+<p>I&rsquo;ve been an `El País&rsquo; reader for a few years now, and I can&rsquo;t help but notice that the Latin
+American version is not that well balanced. Indeed, most of the articles I see on their front page
+come from Mexico.</p>
+<p>In order to get the countries of the main articles, I took all the articles on the front-page from
+2018 using python modules <code>requests</code> and <code>beautifulsoup</code>.</p>
+<h2 id="results">Results<a class="anchor" href="#results">#</a></h2>
+<p><a href="https://elpais.com/elpais/portada%5Famerica.html" 
+  
+   target="_blank" rel="noreferrer noopener" 
+>El País</a> front-page website is written in <code>html</code> and has its articles separated by <code>&lt;article&gt;</code> and
+<code>&lt;/article&gt;</code> tags. Inside these tags you can find the title of the article with the class
+<code>&quot;articulo-titulo&quot;</code> and the location of the article with class <code>&quot;articulo-localizacion&quot;</code> inside a
+<code>dev</code> tag.</p>
+<p>After getting the text from the article with:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> requests
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> bs4 <span style="color:#f92672">import</span> BeautifulSoup
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>r <span style="color:#f92672">=</span> requests<span style="color:#f92672">.</span>get(<span style="color:#e6db74">&#39;https://elpais.com/elpais/portada_america.html&#39;</span>)
+</span></span><span style="display:flex;"><span>soup <span style="color:#f92672">=</span> BeautifulSoup(r,text, <span style="color:#e6db74">&#39;html&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>articles <span style="color:#f92672">=</span> soup<span style="color:#f92672">.</span>find_all(<span style="color:#e6db74">&#39;article&#39;</span>, attrs<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;class&#39;</span>: <span style="color:#e6db74">&#39;articulo&#39;</span>})
+</span></span><span style="display:flex;"><span>loc <span style="color:#f92672">=</span> soup<span style="color:#f92672">.</span>find_all(<span style="color:#e6db74">&#39;span&#39;</span>, attrs<span style="color:#f92672">=</span>{<span style="color:#e6db74">&#39;class&#39;</span>: <span style="color:#e6db74">&#39;articulo-localizacion&#39;</span>})
+</span></span></code></pre></div><p>Using <code>calendar</code> and doing the proper formatting for months and days, it&rsquo;s easy to parse through a
+year of front-page articles. The resulting 33,285 articles contain:</p>
+<ol>
+<li>17,368 <strong>not found</strong> locations</li>
+<li>703 cities</li>
+<li>52 cities with more than 20 appearances in an article (See <a href="#orgd4e05ef" 
+  
+  
+>1</a>)</li>
+<li>The most frequent city is Madrid (3327) following by Mexico City (2191)</li>
+</ol>
+<p><a id="orgd4e05ef"></a></p>
+<figure><img src="/images/freq_city.png"
+    alt="Figure 1: Frequency of cities with more than 20 appearances in El País front-page, Latin American version."><figcaption>
+      <p>Figure 1: Frequency of cities with more than 20 appearances in El País front-page, Latin American version.</p>
+    </figcaption>
+</figure>
+
+<h2 id="conclusion">Conclusion<a class="anchor" href="#conclusion">#</a></h2>
+<p>Even if the version I scanned was the Latin American version,</p>
+<ol>
+<li><strong>Madrid</strong> still upholds the most appearances</li>
+<li>Mexico City is second place</li>
+<li>Two U.S. cities are third and fourth</li>
+<li>Followed by Buenos Aires and Bogotá</li>
+</ol>
+<p>Overall, Latin American cities seem to be <strong>over-represented</strong> (world-wide-like), but <strong>Mexico City</strong> is
+the only Latin American city that appears to be preferred by the editors. Nonetheless, the journal is Spaniard and
+<strong>Spanish news</strong> seem to have the most articles even in the Latin American version of the newspaper.</p>
+
+
+              
+          </article>
+          
+
+ <div class="pagination">
+  
+    <a class="pagination__item" href="http://localhost:1313/post/graph-tool/">
+        <span class="pagination__label">Previous Post</span>
+        <span class="pagination__title">Create a network with Graph-tool and Pandas</span>
+    </a>
+  
+
+  
+    <a class="pagination__item" href="http://localhost:1313/post/config/">
+      <span class="pagination__label">Next Post</span>
+      <span class="pagination__title" >Emacs config file</span>
+    </a>
+  
+</div>
+
+          
+          <footer class="post__footer">
+            
+
+
+<div class="social-icons">
+  
+     
+    
+      <a
+        class="social-icons__link"
+        title="twitter"
+        href="https://twitter.com/ruydg"
+        target="_blank"
+        rel="me noopener"
+      >
+        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/twitter.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a
+        class="social-icons__link"
+        title="github"
+        href="https://github.com/rodogi"
+        target="_blank"
+        rel="me noopener"
+      >
+        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/github.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a
+        class="social-icons__link"
+        title="scholar"
+        href="https://scholar.google.com/citations?user=Qe5ab4gAAAAJ&amp;hl=en"
+        target="_blank"
+        rel="me noopener"
+      >
+        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/scholar.svg')"></div>
+      </a>
+    
+     
+</div>
+
+            <p></p>
+          </footer>
+          </div>
+      </div>
+      
+      <div class="toc-container">
+          
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#results">Results</a></li>
+    <li><a href="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
+      </div>
+      
+    </div>
+    
+
+    </main>
+    <footer>
+    <div class="container">
+      <p>© 2024 Rodrigo Dorantes Gilardi. All rights reserved.</p>
+    </div>
+  </footer>
+  </body>
+</html>

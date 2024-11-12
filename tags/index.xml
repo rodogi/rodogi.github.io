@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Rodrigo Dorantes Gilardi</title>
+    <link>http://localhost:1313/tags/</link>
+    <description>Recent content in Tags on Rodrigo Dorantes Gilardi</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 15 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Biobank Impact Factor</title>
+      <link>http://localhost:1313/tags/biobank-impact-factor/</link>
+      <pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/biobank-impact-factor/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Difference in Difference</title>
+      <link>http://localhost:1313/tags/difference-in-difference/</link>
+      <pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/difference-in-difference/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Impact</title>
+      <link>http://localhost:1313/tags/impact/</link>
+      <pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/impact/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>NLP</title>
+      <link>http://localhost:1313/tags/nlp/</link>
+      <pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/nlp/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Social</title>
+      <link>http://localhost:1313/tags/social/</link>
+      <pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/social/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Technology</title>
+      <link>http://localhost:1313/tags/technology/</link>
+      <pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/technology/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Venue Effect</title>
+      <link>http://localhost:1313/tags/venue-effect/</link>
+      <pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/venue-effect/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Crime</title>
+      <link>http://localhost:1313/tags/crime/</link>
+      <pubDate>Thu, 10 Sep 2020 00:00:00 -0500</pubDate>
+      <guid>http://localhost:1313/tags/crime/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Network Science</title>
+      <link>http://localhost:1313/tags/network-science/</link>
+      <pubDate>Thu, 10 Sep 2020 00:00:00 -0500</pubDate>
+      <guid>http://localhost:1313/tags/network-science/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Bio</title>
+      <link>http://localhost:1313/tags/bio/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/bio/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Co-Expression</title>
+      <link>http://localhost:1313/tags/co-expression/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/co-expression/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>K-Core</title>
+      <link>http://localhost:1313/tags/k-core/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/k-core/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Mutations</title>
+      <link>http://localhost:1313/tags/mutations/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/mutations/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Structure</title>
+      <link>http://localhost:1313/tags/structure/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/tags/structure/</guid>
+      <description></description>
+    </item>
+  </channel>
+</rss>

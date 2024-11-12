@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Venue Effect on Rodrigo Dorantes Gilardi</title>
+    <link>http://localhost:1313/tags/venue-effect/</link>
+    <description>Recent content in Venue Effect on Rodrigo Dorantes Gilardi</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 15 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/venue-effect/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The venue effect</title>
+      <link>http://localhost:1313/research/venue/</link>
+      <pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/research/venue/</guid>
+      <description>&lt;p&gt;This project investigates the &amp;ldquo;venue effect,&amp;rdquo; a phenomenon where high-prestige publication or exhibition platforms significantly shape creative careers. By reconstructing the professional journeys of thousands of scientists and artists, we reveal how prominent venues influence future opportunities and recognition. We find that, while top venues amplify the careers of those granted access, they also reinforce existing inequalities, with benefits unevenly distributed across gender, geography, and career stage.&lt;/p&gt;&#xA;&lt;p&gt;Using large datasets and advanced statistical methods, we quantify this venue effect in both science and art. In science, top journals boost citations and productivity, particularly for mid-career and senior researchers. In the arts, prestigious biennials and exhibitions increase opportunities, especially for early-career artists, offering them greater visibility. This work provides a nuanced understanding of how selective access to prestigious venues shapes professional trajectories, highlighting the need for inclusive practices that can mitigate the reinforcement of these hierarchies.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

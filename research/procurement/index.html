@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>
+        
+            Public procurement networks - Rodrigo Dorantes Gilardi
+        
+    </title>
+    
+    
+    <link rel="stylesheet" href="/scss/custom.css">
+</head>
+  <body>
+    <nav>
+    <div class="container">
+      
+        <a href="/">Home</a>
+      
+        <a href="/research">Research</a>
+      
+        <a href="/resume/resume.pdf">CV</a>
+      
+    </div>
+  </nav>
+    <main>
+      
+<article class="research-article">
+    <div class="container">
+        <header class="article-header">
+            <h1>Public procurement networks</h1>
+            <div class="article-meta">
+                
+                    <p class="description">Analysis of public procurement networks and their implications for policy and governance.</p>
+                
+                <div class="tags">
+                    
+                </div>
+            </div>
+        </header>
+
+        <div class="article-content">
+            <h2 id="overview">Overview</h2>
+<p>Public procurement networks represent the complex relationships between government entities and private contractors. Our research focuses on understanding these relationships and their impact on public spending efficiency.</p>
+<h3 id="key-findings">Key Findings</h3>
+<ol>
+<li>Network structure reveals preferential attachments between certain contractors and government entities</li>
+<li>Community detection algorithms identify potential procurement clusters</li>
+<li>Temporal analysis shows evolution of procurement patterns</li>
+</ol>
+<p><img src="/images/favs.png" alt="Procurement Network Visualization"></p>
+<h3 id="methodology">Methodology</h3>
+<p>We applied several network analysis techniques:</p>
+<ul>
+<li>Community detection</li>
+<li>Centrality measures</li>
+<li>Temporal evolution analysis</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Example code snippet</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> networkx <span style="color:#66d9ef">as</span> nx
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">analyze_procurement_network</span>(edges):
+</span></span><span style="display:flex;"><span>    G <span style="color:#f92672">=</span> nx<span style="color:#f92672">.</span>Graph()
+</span></span><span style="display:flex;"><span>    G<span style="color:#f92672">.</span>add_edges_from(edges)
+</span></span><span style="display:flex;"><span>    communities <span style="color:#f92672">=</span> nx<span style="color:#f92672">.</span>community<span style="color:#f92672">.</span>louvain_communities(G)
+</span></span><span style="display:flex;"><span>    centrality <span style="color:#f92672">=</span> nx<span style="color:#f92672">.</span>eigenvector_centrality(G)
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> communities, centrality
+</span></span></code></pre></div><h3 id="publications">Publications</h3>
+<ol>
+<li>&ldquo;Structure and dynamics of public procurement networks&rdquo; (2023)</li>
+<li>&ldquo;Temporal evolution of contractor relationships&rdquo; (2024)</li>
+</ol>
+<h3 id="collaborators">Collaborators</h3>
+<ul>
+<li>Dr. Jane Smith (Harvard University)</li>
+<li>Prof. John Doe (MIT)</li>
+</ul>
+
+        </div>
+
+        <nav class="article-nav">
+            
+                <a class="prev" href="/research/venue/">← The venue effect</a>
+            
+            
+                <a class="next" href="/research/biotools/">BioTools →</a>
+            
+        </nav>
+    </div>
+</article>
+
+    </main>
+    <footer>
+    <div class="container">
+      <p>© 2024 Rodrigo Dorantes Gilardi. All rights reserved.</p>
+    </div>
+  </footer>
+  </body>
+</html>

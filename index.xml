@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rodrigo Dorantes Gilardi</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on Rodrigo Dorantes Gilardi</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 15 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Biobanks</title>
+      <link>http://localhost:1313/research/biobanks/</link>
+      <pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/research/biobanks/</guid>
+      <description>&lt;p&gt;Scientific research is increasingly shaped by the collective efforts of vast repositories of health data and biological samples, which together form the foundation of biobanks. These biobanks serve as essential resources, supplying vast datasets for groundbreaking medical research aimed at understanding and treating complex diseases. In our work, we’ve explored over 2,600 biobanks and cataloged their presence across scientific literature, patents, clinical trials, grants, and policy documents to better understand the broad impact of these repositories. By tracing mentions and references across almost 230,000 documents, we’ve uncovered unique insights into the areas of science and innovation most frequently propelled by biobank data.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>BioTools</title>
+      <link>http://localhost:1313/research/biotools/</link>
+      <pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/research/biotools/</guid>
+      <description>&lt;p&gt;The heart of this project lies in mapping the often unseen yet transformative role of biomedical tools—what we term BioTools—in shaping scientific discovery and health innovations. BioTools include laboratory methods, modeling techniques, and software applications that facilitate scientific experiments and analyses, from detecting genetic variants to visualizing molecular structures. Despite their critical role, BioTools are frequently overlooked by traditional impact metrics, such as citation counts, leaving a significant gap in recognizing the scientists and research teams behind these innovations.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Public procurement networks</title>
+      <link>http://localhost:1313/research/procurement/</link>
+      <pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/research/procurement/</guid>
+      <description>&lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;&#xA;&lt;p&gt;Public procurement networks represent the complex relationships between government entities and private contractors. Our research focuses on understanding these relationships and their impact on public spending efficiency.&lt;/p&gt;&#xA;&lt;h3 id=&#34;key-findings&#34;&gt;Key Findings&lt;/h3&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;Network structure reveals preferential attachments between certain contractors and government entities&lt;/li&gt;&#xA;&lt;li&gt;Community detection algorithms identify potential procurement clusters&lt;/li&gt;&#xA;&lt;li&gt;Temporal analysis shows evolution of procurement patterns&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/favs.png&#34; alt=&#34;Procurement Network Visualization&#34;&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;methodology&#34;&gt;Methodology&lt;/h3&gt;&#xA;&lt;p&gt;We applied several network analysis techniques:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Community detection&lt;/li&gt;&#xA;&lt;li&gt;Centrality measures&lt;/li&gt;&#xA;&lt;li&gt;Temporal evolution analysis&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Example code snippet&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; networkx &lt;span style=&#34;color:#66d9ef&#34;&gt;as&lt;/span&gt; nx&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;analyze_procurement_network&lt;/span&gt;(edges):&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    G &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; nx&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;Graph()&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    G&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;add_edges_from(edges)&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    communities &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; nx&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;community&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;louvain_communities(G)&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    centrality &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; nx&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;eigenvector_centrality(G)&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; communities, centrality&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;publications&#34;&gt;Publications&lt;/h3&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;&amp;ldquo;Structure and dynamics of public procurement networks&amp;rdquo; (2023)&lt;/li&gt;&#xA;&lt;li&gt;&amp;ldquo;Temporal evolution of contractor relationships&amp;rdquo; (2024)&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;h3 id=&#34;collaborators&#34;&gt;Collaborators&lt;/h3&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Dr. Jane Smith (Harvard University)&lt;/li&gt;&#xA;&lt;li&gt;Prof. John Doe (MIT)&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
+    <item>
+      <title>The venue effect</title>
+      <link>http://localhost:1313/research/venue/</link>
+      <pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/research/venue/</guid>
+      <description>&lt;p&gt;This project investigates the &amp;ldquo;venue effect,&amp;rdquo; a phenomenon where high-prestige publication or exhibition platforms significantly shape creative careers. By reconstructing the professional journeys of thousands of scientists and artists, we reveal how prominent venues influence future opportunities and recognition. We find that, while top venues amplify the careers of those granted access, they also reinforce existing inequalities, with benefits unevenly distributed across gender, geography, and career stage.&lt;/p&gt;&#xA;&lt;p&gt;Using large datasets and advanced statistical methods, we quantify this venue effect in both science and art. In science, top journals boost citations and productivity, particularly for mid-career and senior researchers. In the arts, prestigious biennials and exhibitions increase opportunities, especially for early-career artists, offering them greater visibility. This work provides a nuanced understanding of how selective access to prestigious venues shapes professional trajectories, highlighting the need for inclusive practices that can mitigate the reinforcement of these hierarchies.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Crime and urban landscape</title>
+      <link>http://localhost:1313/research/crime/</link>
+      <pubDate>Thu, 10 Sep 2020 00:00:00 -0500</pubDate>
+      <guid>http://localhost:1313/research/crime/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Polarization in social networks (Social)</title>
+      <link>http://localhost:1313/research/polarization/</link>
+      <pubDate>Thu, 10 Sep 2020 00:00:00 -0500</pubDate>
+      <guid>http://localhost:1313/research/polarization/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>I forgive your taxes</title>
+      <link>http://localhost:1313/post/taxes/</link>
+      <pubDate>Wed, 02 Oct 2019 00:00:00 -0500</pubDate>
+      <guid>http://localhost:1313/post/taxes/</guid>
+      <description>&lt;h2 id=&#34;overall&#34;&gt;Overall&lt;/h2&gt;&#xA;&lt;p&gt;My Friend and mentor &lt;a href=&#34;https://scholar.google.com.mx/citations?user=Aoa-qxcAAAAJ&amp;amp;hl=en#&#34; &#xA;  &#xA;   target=&#34;_blank&#34; rel=&#34;noreferrer noopener&#34; &#xA;&gt;Chucho&lt;/a&gt; told me about a &lt;a href=&#34;https://privilegiosfiscales.fundar.org.mx/&#34; &#xA;  &#xA;   target=&#34;_blank&#34; rel=&#34;noreferrer noopener&#34; &#xA;&gt;table&lt;/a&gt; of people who&amp;rsquo;s taxes were forgiven between&#xA;2007&amp;ndash;2019 in Mexico came public recently. The information was compiled by Mexican association&#xA;Fundar, and it includes the year of the tax exemption, the amount and the entity. Tax exemptions&#xA;are classified in two types: cancellation and reduction.&lt;/p&gt;&#xA;&lt;p&gt;Here, I focus on real people and tax reductions. Another analysis should be made including tax&#xA;cancellation and private companies. The time spans the presidency of three Mexican presidents, so&#xA;let&amp;rsquo;s see who was forgiving who and when, whenever I say forgiven I&amp;rsquo;m really talking about a (in&#xA;some cases huge) tax reduction.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>A quick look at the Mexican national system of researchers with Python</title>
+      <link>http://localhost:1313/post/sni/</link>
+      <pubDate>Sat, 28 Sep 2019 00:00:00 -0500</pubDate>
+      <guid>http://localhost:1313/post/sni/</guid>
+      <description>&lt;h2 id=&#34;sni&#34;&gt;SNI&lt;/h2&gt;&#xA;&lt;p&gt;The national system of researchers (Sistema Nacional de Investigadores) or SNI is a mexican public&#xA;organization that aims at boosting national research by giving grants to outstanding researchers&#xA;working in the country.&lt;/p&gt;&#xA;&lt;p&gt;It was founded in 1984 and since then, it has been a key component of the Mexican&#xA;science. Yesterday, the SNI published the list of accepted, renewed, or upgraded candidates&#xA;in 2019. It did so in a PDF format that you can find &lt;a href=&#34;https://www.conacyt.gob.mx/images/SNI/2019/RESULTADOS%5FSNI%5FCONVOCATORIA%5F2019%5FINGRESO%5FO%5FPERMANENCIA.pdf&#34; &#xA;  &#xA;   target=&#34;_blank&#34; rel=&#34;noreferrer noopener&#34; &#xA;&gt;here&lt;/a&gt;. I decided to take a quick look at the&#xA;list to see what is new under the sun.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Emacs config file</title>
+      <link>http://localhost:1313/post/config/</link>
+      <pubDate>Thu, 26 Sep 2019 00:00:00 -0500</pubDate>
+      <guid>http://localhost:1313/post/config/</guid>
+      <description>&lt;p&gt;I recently went for a full migration to an &lt;code&gt;org&lt;/code&gt; file, and things be said, my config file looks way&#xA;more tidy. I recommend to make the change to have a more &lt;strong&gt;literal programming&lt;/strong&gt; kind of &lt;code&gt;init&lt;/code&gt; file.&lt;/p&gt;&#xA;&lt;p&gt;This file is of course continuously being updated, you can see the updated version &lt;a href=&#34;https://github.com/rodogi/emacs/blob/master/config.org&#34; &#xA;  &#xA;   target=&#34;_blank&#34; rel=&#34;noreferrer noopener&#34; &#xA;&gt;here&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;personal-info&#34;&gt;Personal info&lt;/h2&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-emacs-lisp&#34; data-lang=&#34;emacs-lisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(setq &lt;span style=&#34;color:#a6e22e&#34;&gt;user-full-name&lt;/span&gt; &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Rodrigo Dorantes Gilardi&amp;#34;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;&#x9;user-mail-address &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;rodgdor@gmail.com&amp;#34;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;&#x9;calendar-latitude &lt;span style=&#34;color:#ae81ff&#34;&gt;19.4326&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;&#x9;calendar-longitude &lt;span style=&#34;color:#ae81ff&#34;&gt;-99.13&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;&#x9;calendar-location-name &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Mexico City&amp;#34;&lt;/span&gt;)&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;use-package&#34;&gt;&lt;code&gt;use-package&lt;/code&gt;&lt;/h2&gt;&#xA;&lt;p&gt;This configuration is inspired by Harry Schwartz&#xA;&lt;a href=&#34;https://github.com/hrs/dotfiles/blob/master/emacs/.emacs.d/configuration.org&#34; &#xA;  &#xA;   target=&#34;_blank&#34; rel=&#34;noreferrer noopener&#34; &#xA;&gt;config file&lt;/a&gt;. So let&amp;rsquo;s first start by setting &lt;code&gt;use-package&lt;/code&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>What cities appear more often in El País articles?</title>
+      <link>http://localhost:1313/post/el_pais/</link>
+      <pubDate>Mon, 22 Jul 2019 00:00:00 -0500</pubDate>
+      <guid>http://localhost:1313/post/el_pais/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;El País is one of the most well-known newspapers in the Hispanic world. Personally, it is one of&#xA;my favorites as its American (Latin American) version has news from all over the region (I live in&#xA;Mexico).&lt;/p&gt;&#xA;&lt;p&gt;I&amp;rsquo;ve been an `El País&amp;rsquo; reader for a few years now, and I can&amp;rsquo;t help but notice that the Latin&#xA;American version is not that well balanced. Indeed, most of the articles I see on their front page&#xA;come from Mexico.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Create a network with Graph-tool and Pandas</title>
+      <link>http://localhost:1313/post/graph-tool/</link>
+      <pubDate>Wed, 26 Jun 2019 00:00:00 -0500</pubDate>
+      <guid>http://localhost:1313/post/graph-tool/</guid>
+      <description>&lt;h2 id=&#34;graph-tool&#34;&gt;Graph-tool&lt;/h2&gt;&#xA;&lt;p&gt;Recently, I discovered the python package &lt;a href=&#34;https://graph-tool.skewed.de/&#34; &#xA;  &#xA;   target=&#34;_blank&#34; rel=&#34;noreferrer noopener&#34; &#xA;&gt;graph-tool&lt;/a&gt; for network analysis. The advantage of&#xA;&lt;code&gt;graph-tool&lt;/code&gt; over the very popular &lt;code&gt;networkx&lt;/code&gt; is the speed, as said by its creator:&lt;/p&gt;&#xA;&lt;p class=&#34;verse&#34;&gt;&#xA;Contrary to most other python modules with similar functionality, the core data structures and&lt;br /&gt;&#xA;algorithms are implemented in C++, making extensive use of template metaprogramming, based heavily&lt;br /&gt;&#xA;on the Boost Graph Library. This confers it a level of performance that is comparable (both in&lt;br /&gt;&#xA;memory usage and computation time) to that of a pure C/C++ library.&lt;br /&gt;&#xA;&lt;br /&gt;&#xA;&lt;br /&gt;&#xA;---Tiago Peixoto&lt;br /&gt;&#xA;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Using pandas for network analysis</title>
+      <link>http://localhost:1313/post/pandas_network/</link>
+      <pubDate>Wed, 15 May 2019 00:00:00 -0500</pubDate>
+      <guid>http://localhost:1313/post/pandas_network/</guid>
+      <description>&lt;h2 id=&#34;network-analysis&#34;&gt;Network analysis&lt;/h2&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://networkx.github.io/&#34; &#xA;  &#xA;   target=&#34;_blank&#34; rel=&#34;noreferrer noopener&#34; &#xA;&gt;Networkx&lt;/a&gt; is a well known python module for the analysis of networks. I used it a lot during my PhD&#xA;for the creation of protein networks and to compare them. I stopped using it for a while after I moved&#xA;to the industry as a data scientist.&lt;/p&gt;&#xA;&lt;p&gt;My job consisted 90% of the time to process data (pre-process, clean, feature creation, wrangling)&#xA;before modeling anything. Pandas is indeed a data-analysis library for python, and a very good one.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Adding arrows to networkx</title>
+      <link>http://localhost:1313/post/networkx_arrows/</link>
+      <pubDate>Tue, 29 May 2018 00:00:00 -0500</pubDate>
+      <guid>http://localhost:1313/post/networkx_arrows/</guid>
+      <description>&lt;h2 id=&#34;no-arrows-in-networkx&#34;&gt;No arrows in networkx&lt;/h2&gt;&#xA;&lt;p&gt;Believe it or not, the popular network package &lt;code&gt;networkx&lt;/code&gt; didn&amp;rsquo;t have arrows to draw directed&#xA;networks. Instead, it used some ugly rectangles to indicate direction.&lt;/p&gt;&#xA;&lt;p&gt;Networkx is a package that I use regularly, and I wanted to contribute to the open source community&#xA;that had given me so much, so I decided to implement the arrows.&lt;/p&gt;&#xA;&lt;p&gt;Before, a network would look like this:&lt;/p&gt;&#xA;&lt;figure&gt;&lt;img src=&#34;http://localhost:1313/images/old_networkx.png&#34;&#xA;    alt=&#34;Figure 1: Example of an old directed network.&#34;&gt;&lt;figcaption&gt;&#xA;      &lt;p&gt;Figure 1: Example of an old directed network.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Folding python code in Emacs</title>
+      <link>http://localhost:1313/post/python-fold/</link>
+      <pubDate>Mon, 19 Mar 2018 00:00:00 -0600</pubDate>
+      <guid>http://localhost:1313/post/python-fold/</guid>
+      <description>&lt;h2 id=&#34;purpose&#34;&gt;Purpose&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;I use python in my every-day work and I&amp;rsquo;m starting to use (and&#xA;love) Emacs.&lt;/li&gt;&#xA;&lt;li&gt;I use &lt;code&gt;vimish-folding&lt;/code&gt; package to fold code in Emacs. It allows you&#xA;to define your own foldings and remembers them for the next time you&#xA;open the file.&lt;/li&gt;&#xA;&lt;li&gt;Comming from &lt;strong&gt;vim&lt;/strong&gt; I miss having my functions and classes folded out-of-the-box.&lt;/li&gt;&#xA;&lt;li&gt;Unfortunately you don&amp;rsquo;t have that in &lt;code&gt;vimish-folding&lt;/code&gt;, but it&amp;rsquo;s&#xA;easy to implemented a function to do just that: Fold every code-block in&#xA;your buffer.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;the-function&#34;&gt;The Function&lt;/h2&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-emacs-lisp&#34; data-lang=&#34;emacs-lisp&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;;; Fold code-blocks in python&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;(defun fold-python-blocks ()&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Fold all code blocks in python&amp;#34;&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  (interactive)&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  (&lt;span style=&#34;color:#a6e22e&#34;&gt;forward-word&lt;/span&gt;) &lt;span style=&#34;color:#75715e&#34;&gt;; start with the second word&lt;/span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  (setq p (&lt;span style=&#34;color:#a6e22e&#34;&gt;point&lt;/span&gt;))&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  (while (&lt;span style=&#34;color:#a6e22e&#34;&gt;forward-word&lt;/span&gt;)&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    (backward-word)&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    (setq col (&lt;span style=&#34;color:#a6e22e&#34;&gt;current-column&lt;/span&gt;))&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    (&lt;span style=&#34;color:#a6e22e&#34;&gt;forward-word&lt;/span&gt;)&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    (if (&lt;span style=&#34;color:#a6e22e&#34;&gt;=&lt;/span&gt; col &lt;span style=&#34;color:#ae81ff&#34;&gt;0&lt;/span&gt;)&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;(progn&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;  (setq p1 (&lt;span style=&#34;color:#a6e22e&#34;&gt;car&lt;/span&gt; (bounds-of-thing-at-point &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;word&lt;/span&gt;)))&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;  (vimish-fold p p1)&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;  (setq p p1)&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;  (&lt;span style=&#34;color:#a6e22e&#34;&gt;goto-char&lt;/span&gt; p)&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#x9;  (&lt;span style=&#34;color:#a6e22e&#34;&gt;forward-word&lt;/span&gt;))))&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  (vimish-fold p (&lt;span style=&#34;color:#a6e22e&#34;&gt;buffer-size&lt;/span&gt;))&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;  (&lt;span style=&#34;color:#a6e22e&#34;&gt;goto-char&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt;))&#xA;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;div class=&#34;src-block-caption&#34;&gt;&#xA;  &lt;span class=&#34;src-block-number&#34;&gt;Code Snippet 1&lt;/span&gt;:&#xA;  Add the following code to your &lt;code&gt;init.el&lt;/code&gt; file to fold code blocks in python.&#xA;&lt;/div&gt;&#xA;&lt;p&gt;You can use the previous function by typing &lt;code&gt;M-x fold-python-blocks&lt;/code&gt;. This will fold each code block in your file,&#xA;including code out of functions and classes, for instance, after a&#xA;sentence of the style:&#xA;#+BEGIN_SRC python&#xA;if &lt;span class=&#34;underline&#34;&gt;&lt;span class=&#34;underline&#34;&gt;name&lt;/span&gt;&lt;/span&gt; == &amp;ldquo;&lt;span class=&#34;underline&#34;&gt;&lt;span class=&#34;underline&#34;&gt;main&lt;/span&gt;&lt;/span&gt;&amp;rdquo;:&#xA;#+END_SR&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Gender networks</title>
+      <link>http://localhost:1313/research/gender-networks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/research/gender-networks/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Gene co-expression in breast cancer</title>
+      <link>http://localhost:1313/research/gene-coexpression/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/research/gene-coexpression/</guid>
+      <description>&lt;p&gt;In this study, we used a multilayer network approach to uncover fundamental structural principles in gene co-expression networks (GCNs) that are disrupted in breast cancer. By analyzing both healthy and cancerous gene co-expression networks, we identified key differences in connectivity patterns, revealing how healthy cells maintain a complex network of gene interactions across chromosomes. In contrast, the breast cancer network exhibits a loss of these inter-chromosomal connections, leading to a simpler, more localized structure confined largely to genes within the same chromosome.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Protein Structure</title>
+      <link>http://localhost:1313/research/protein-networks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/research/protein-networks/</guid>
+      <description>&lt;p&gt;This project looks into the structural and functional shifts in proteins caused by mutations, exploring how such changes impact protein behavior. By constructing detailed amino acid networks for five proteins, we analyzed how mutations at specific positions alter both structure and function, revealing a strong relationship between structural sensitivity and functional outcomes. Our approach combines network science with protein modeling, allowing us to predict functionally sensitive regions based solely on structural perturbations.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

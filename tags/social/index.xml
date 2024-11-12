@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Social on Rodrigo Dorantes Gilardi</title>
+    <link>http://localhost:1313/tags/social/</link>
+    <description>Recent content in Social on Rodrigo Dorantes Gilardi</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 15 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/social/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Biobanks</title>
+      <link>http://localhost:1313/research/biobanks/</link>
+      <pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/research/biobanks/</guid>
+      <description>&lt;p&gt;Scientific research is increasingly shaped by the collective efforts of vast repositories of health data and biological samples, which together form the foundation of biobanks. These biobanks serve as essential resources, supplying vast datasets for groundbreaking medical research aimed at understanding and treating complex diseases. In our work, we’ve explored over 2,600 biobanks and cataloged their presence across scientific literature, patents, clinical trials, grants, and policy documents to better understand the broad impact of these repositories. By tracing mentions and references across almost 230,000 documents, we’ve uncovered unique insights into the areas of science and innovation most frequently propelled by biobank data.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>BioTools</title>
+      <link>http://localhost:1313/research/biotools/</link>
+      <pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/research/biotools/</guid>
+      <description>&lt;p&gt;The heart of this project lies in mapping the often unseen yet transformative role of biomedical tools—what we term BioTools—in shaping scientific discovery and health innovations. BioTools include laboratory methods, modeling techniques, and software applications that facilitate scientific experiments and analyses, from detecting genetic variants to visualizing molecular structures. Despite their critical role, BioTools are frequently overlooked by traditional impact metrics, such as citation counts, leaving a significant gap in recognizing the scientists and research teams behind these innovations.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>The venue effect</title>
+      <link>http://localhost:1313/research/venue/</link>
+      <pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/research/venue/</guid>
+      <description>&lt;p&gt;This project investigates the &amp;ldquo;venue effect,&amp;rdquo; a phenomenon where high-prestige publication or exhibition platforms significantly shape creative careers. By reconstructing the professional journeys of thousands of scientists and artists, we reveal how prominent venues influence future opportunities and recognition. We find that, while top venues amplify the careers of those granted access, they also reinforce existing inequalities, with benefits unevenly distributed across gender, geography, and career stage.&lt;/p&gt;&#xA;&lt;p&gt;Using large datasets and advanced statistical methods, we quantify this venue effect in both science and art. In science, top journals boost citations and productivity, particularly for mid-career and senior researchers. In the arts, prestigious biennials and exhibitions increase opportunities, especially for early-career artists, offering them greater visibility. This work provides a nuanced understanding of how selective access to prestigious venues shapes professional trajectories, highlighting the need for inclusive practices that can mitigate the reinforcement of these hierarchies.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

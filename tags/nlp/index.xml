@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>NLP on Rodrigo Dorantes Gilardi</title>
+    <link>http://localhost:1313/tags/nlp/</link>
+    <description>Recent content in NLP on Rodrigo Dorantes Gilardi</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 15 Jan 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/nlp/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Biobanks</title>
+      <link>http://localhost:1313/research/biobanks/</link>
+      <pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/research/biobanks/</guid>
+      <description>&lt;p&gt;Scientific research is increasingly shaped by the collective efforts of vast repositories of health data and biological samples, which together form the foundation of biobanks. These biobanks serve as essential resources, supplying vast datasets for groundbreaking medical research aimed at understanding and treating complex diseases. In our work, we’ve explored over 2,600 biobanks and cataloged their presence across scientific literature, patents, clinical trials, grants, and policy documents to better understand the broad impact of these repositories. By tracing mentions and references across almost 230,000 documents, we’ve uncovered unique insights into the areas of science and innovation most frequently propelled by biobank data.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>
+        
+            A quick look at the Mexican national system of researchers with Python - Rodrigo Dorantes Gilardi
+        
+    </title>
+    
+    
+    <link rel="stylesheet" href="/scss/custom.css">
+</head>
+  <body>
+    <nav>
+    <div class="container">
+      
+        <a href="/">Home</a>
+      
+        <a href="/research">Research</a>
+      
+        <a href="/resume/resume.pdf">CV</a>
+      
+    </div>
+  </nav>
+    <main>
+      
+    
+
+    <div class="flex-wrapper">
+      <div class="post__container">
+        <div class="post">
+          <header class="post__header">
+            <h1 id="post__title">A quick look at the Mexican national system of researchers with Python</h1>
+            <time datetime="2019-09-28 00:00:00 -0500 CDT" class="post__date">Sep 28 2019</time> 
+          </header>
+          <article class="post__content">
+              
+<h2 id="sni">SNI<a class="anchor" href="#sni">#</a></h2>
+<p>The national system of researchers (Sistema Nacional de Investigadores) or SNI is a mexican public
+organization that aims at boosting national research by giving grants to outstanding researchers
+working in the country.</p>
+<p>It was founded in 1984 and since then, it has been a key component of the Mexican
+science. Yesterday, the SNI published the list of accepted, renewed, or upgraded candidates
+in 2019. It did so in a PDF format that you can find <a href="https://www.conacyt.gob.mx/images/SNI/2019/RESULTADOS%5FSNI%5FCONVOCATORIA%5F2019%5FINGRESO%5FO%5FPERMANENCIA.pdf" 
+  
+   target="_blank" rel="noreferrer noopener" 
+>here</a>. I decided to take a quick look at the
+list to see what is new under the sun.</p>
+<h2 id="basic-overview">Basic Overview<a class="anchor" href="#basic-overview">#</a></h2>
+<p>If we go to <a href="https://www.conacyt.gob.mx/index.php/el-conacyt/sistema-nacional-de-investigadores/archivo-historico" 
+  
+   target="_blank" rel="noreferrer noopener" 
+>this link</a>, we can see the records of the actual researchers that are members in the
+SNI as of 2018. I&rsquo;ve downloaded this excel file in my <code>Downloads</code> folder and read it using pandas.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>df_all <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_excel(<span style="color:#e6db74">&#39;/Users/rdora/Downloads/BENEFICIARIOS_2018.xlsx&#39;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Just take the first 14 columns</span>
+</span></span><span style="display:flex;"><span>df_all <span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>iloc[:, <span style="color:#ae81ff">0</span>:<span style="color:#ae81ff">14</span>]
+</span></span><span style="display:flex;"><span>print(df<span style="color:#f92672">.</span>shape)
+</span></span></code></pre></div><p>According to this, there are 28,633 SNI researchers. We&rsquo;ll keep this table for later.</p>
+<h2 id="2019-stats">2019 Stats<a class="anchor" href="#2019-stats">#</a></h2>
+<p>On September 27, SNI published the list of accepted and kept candidates for 2019. This list is a bit
+more tricky to read as it is on a PDF file. Python can read tables on PDF files using a library
+called <code>tabula-py</code>, that you can install with <code>pip install tabula-py</code>. Later, you can read the file
+as follows.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> tabula
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>path <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;/Users/rdora/Downloads/RESULTADOS_SNI_CONVOCATORIA_2019_INGRESO_O_PERMANENCIA.pdf&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># The file contains 203 pages</span>
+</span></span><span style="display:flex;"><span>pages <span style="color:#f92672">=</span> range(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">204</span>)
+</span></span><span style="display:flex;"><span>dfs <span style="color:#f92672">=</span> []
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># We have to read each page individually</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> page <span style="color:#f92672">in</span> pages:
+</span></span><span style="display:flex;"><span>		df <span style="color:#f92672">=</span> tabula<span style="color:#f92672">.</span>read_pdf(path, pages<span style="color:#f92672">=</span>str(page))
+</span></span><span style="display:flex;"><span>		dfs<span style="color:#f92672">.</span>append(df)
+</span></span><span style="display:flex;"><span>df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>concat(dfs, axis<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>df <span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>dropna()
+</span></span></code></pre></div><p>After reading the table, and doing some cleaning (reading from a PDF is not cool), we can see that
+there are 9,942 candidates with their SNI ID (defined by level of addition to the SNI), their name,
+and their distinction (SNI level, from candidate to SNI level 3).</p>
+<p>Let&rsquo;s get the number of new candidates.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>df_all[<span style="color:#e6db74">&#39;NAME&#39;</span>] <span style="color:#f92672">=</span> (df_all[<span style="color:#e6db74">&#39;PATERNO&#39;</span>] <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34; &#34;</span> <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>								 df_all[<span style="color:#e6db74">&#39;MATERNO&#39;</span>] <span style="color:#f92672">+</span> <span style="color:#e6db74">&#34;,&#34;</span> <span style="color:#f92672">+</span>
+</span></span><span style="display:flex;"><span>								 df_all[<span style="color:#e6db74">&#34;NOMBRE&#34;</span>])
+</span></span><span style="display:flex;"><span>df_new <span style="color:#f92672">=</span> df[<span style="color:#f92672">~</span>df<span style="color:#f92672">.</span>NOMBRE<span style="color:#f92672">.</span>isin(df_all<span style="color:#f92672">.</span>NAME)]
+</span></span></code></pre></div><p>There are 5,338 new researchers in the SNI in 2019. Using this <code>pd.DataFrame</code> we can get the number
+of women and their distinction or level in the SNI. From these, 0.58 are Male and 0.42 are
+Female. The overall ratio of female researchers (without the new members) is 0.37.</p>
+<p><a id="org3df0a84"></a></p>
+<figure><img src="/images/gender_sni.png"
+    alt="Figure 1: Gender distribution new members"><figcaption>
+      <p>Figure 1: Gender distribution new members</p>
+    </figcaption>
+</figure>
+
+<p><a id="orgd17f3d2"></a></p>
+<figure><img src="/images/gender_sni_all.png"
+    alt="Figure 2: Gender distribution old members"><figcaption>
+      <p>Figure 2: Gender distribution old members</p>
+    </figcaption>
+</figure>
+
+<p>Applicants are assigned 1 of 6 categories:</p>
+<ul>
+<li>C: candidate</li>
+<li>PC1: candidate-level extension 1 year</li>
+<li>PC2: candidate-level extension 2 years</li>
+<li>1: SNI level 1</li>
+<li>2: SNI level 2</li>
+<li>3: SNI level 3</li>
+</ul>
+<p>New members are mostly candidates (54%) and SNI level 1 (38%) and only 1.5% were assigned the title
+of SNI level 3.</p>
+<p><a id="org3256f9d"></a></p>
+<figure><img src="/images/dist_sni.png"
+    alt="Figure 3: New members by SNI level"><figcaption>
+      <p>Figure 3: New members by SNI level</p>
+    </figcaption>
+</figure>
+
+<p>Female new members are more likely to be candidates (57% of female population) than males (51%), SNI
+male new members are  1.5 times more likely (4.2%) to be SNI-level 2 than their female counterparts
+(2.9%) and 3 times more likely to be SNI-level 3 (2% and 0.7%, respectively).</p>
+<p><a id="orgec373f2"></a></p>
+<figure><img src="/images/dist_sni_M.png"
+    alt="Figure 4: New members by SNI level: Males"><figcaption>
+      <p>Figure 4: New members by SNI level: Males</p>
+    </figcaption>
+</figure>
+
+<p><a id="org3146d4c"></a></p>
+<figure><img src="/images/dist_sni_F.png"
+    alt="Figure 5: New members by SNI level: Females"><figcaption>
+      <p>Figure 5: New members by SNI level: Females</p>
+    </figcaption>
+</figure>
+
+
+
+              
+          </article>
+          
+
+ <div class="pagination">
+  
+    <a class="pagination__item" href="http://localhost:1313/post/config/">
+        <span class="pagination__label">Previous Post</span>
+        <span class="pagination__title">Emacs config file</span>
+    </a>
+  
+
+  
+    <a class="pagination__item" href="http://localhost:1313/post/taxes/">
+      <span class="pagination__label">Next Post</span>
+      <span class="pagination__title" >I forgive your taxes</span>
+    </a>
+  
+</div>
+
+          
+          <footer class="post__footer">
+            
+
+
+<div class="social-icons">
+  
+     
+    
+      <a
+        class="social-icons__link"
+        title="twitter"
+        href="https://twitter.com/ruydg"
+        target="_blank"
+        rel="me noopener"
+      >
+        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/twitter.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a
+        class="social-icons__link"
+        title="github"
+        href="https://github.com/rodogi"
+        target="_blank"
+        rel="me noopener"
+      >
+        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/github.svg')"></div>
+      </a>
+    
+  
+     
+    
+      <a
+        class="social-icons__link"
+        title="scholar"
+        href="https://scholar.google.com/citations?user=Qe5ab4gAAAAJ&amp;hl=en"
+        target="_blank"
+        rel="me noopener"
+      >
+        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/scholar.svg')"></div>
+      </a>
+    
+     
+</div>
+
+            <p></p>
+          </footer>
+          </div>
+      </div>
+      
+      <div class="toc-container">
+          
+        <nav id="TableOfContents">
+  <ul>
+    <li><a href="#sni">SNI</a></li>
+    <li><a href="#basic-overview">Basic Overview</a></li>
+    <li><a href="#2019-stats">2019 Stats</a></li>
+  </ul>
+</nav>
+      </div>
+      
+    </div>
+    
+
+    </main>
+    <footer>
+    <div class="container">
+      <p>© 2024 Rodrigo Dorantes Gilardi. All rights reserved.</p>
+    </div>
+  </footer>
+  </body>
+</html>
