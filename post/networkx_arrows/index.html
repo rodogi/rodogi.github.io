@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
@@ -17,144 +17,75 @@
     <nav>
     <div class="container">
       
-        <a href="/">Home</a>
+        <a href="/">home</a>
       
-        <a href="/research">Research</a>
+        <a href="/research">research</a>
       
-        <a href="/resume/resume.pdf">CV</a>
+        <a href="/teaching">teaching</a>
+      
+        <a href="/post">blog</a>
+      
+        <a href="/cv">cv</a>
       
     </div>
   </nav>
     <main>
       
-    
-
-    <div class="flex-wrapper">
-      <div class="post__container">
-        <div class="post">
-          <header class="post__header">
-            <h1 id="post__title">Adding arrows to networkx</h1>
-            <time datetime="2018-05-29 00:00:00 -0500 -0500" class="post__date">May 29 2018</time> 
-          </header>
-          <article class="post__content">
-              
-<h2 id="no-arrows-in-networkx">No arrows in networkx<a class="anchor" href="#no-arrows-in-networkx">#</a></h2>
-<p>Believe it or not, the popular network package <code>networkx</code> didn&rsquo;t have arrows to draw directed
-networks. Instead, it used some ugly rectangles to indicate direction.</p>
-<p>Networkx is a package that I use regularly, and I wanted to contribute to the open source community
-that had given me so much, so I decided to implement the arrows.</p>
-<p>Before, a network would look like this:</p>
-<figure><img src="/images/old_networkx.png"
-    alt="Figure 1: Example of an old directed network."><figcaption>
-      <p>Figure 1: Example of an old directed network.</p>
-    </figcaption>
-</figure>
-
-<h2 id="arrows-in-networkx">Arrows in networkx<a class="anchor" href="#arrows-in-networkx">#</a></h2>
-<p>The flow I used for my contribution was the following:</p>
+<div class="container">
+    <article class="research-article">
+        <div class="article-header">
+            <h1>Adding arrows to networkx</h1>
+            <div class="description">May 29, 2018 · Rodrigo Dorantes-Gilardi</div>
+        </div>
+        <div class="article-content">
+            <h2 id="the-problem">The problem</h2>
+<p>Surprisingly, <code>networkx</code>—the most popular Python package for network analysis—didn’t render proper arrows when drawing directed graphs. Instead, it used rectangular markers to indicate edge direction.</p>
+<p>As a regular user, I wanted to fix this and contribute back to the open-source community.</p>
+<h2 id="the-contribution">The contribution</h2>
+<p>The workflow was straightforward:</p>
 <ol>
-<li>Open an <a href="https://github.com/networkx/networkx/issues/2757" 
+<li>I opened an <a href="https://github.com/networkx/networkx/issues/2757" 
   
    target="_blank" rel="noreferrer noopener" 
->issue</a> on the networkx&rsquo; github repo.</li>
-<li>After I was told the issue was worth it, I created a <a href="https://github.com/networkx/networkx/pull/2760" 
+>issue</a> on the networkx GitHub repo</li>
+<li>After the maintainers confirmed it was worth pursuing, I submitted a <a href="https://github.com/networkx/networkx/pull/2760" 
   
    target="_blank" rel="noreferrer noopener" 
->pull-request</a>.</li>
-<li>After some back and forth discussion, they pulled my code!</li>
+>pull request</a></li>
+<li>After some review and discussion, the code was merged</li>
 </ol>
-<p>Now, a directed network looks like this:</p>
-<figure><img src="/images/new_networkx.png"
-    alt="Figure 2: Example of an actual directed network."><figcaption>
-      <p>Figure 2: Example of an actual directed network.</p>
+<p><strong>Before:</strong></p>
+<figure><img src="/images/old_networkx.png"
+    alt="Figure 1: Directed network rendering before the fix."><figcaption>
+      <p>Figure 1: Directed network rendering before the fix.</p>
     </figcaption>
 </figure>
 
-<p>This contribution really made me learn a lot about the code behind the drawings of networkx, but
-also about <code>matplotlib</code>. I think that contributing to a project is a great idea to learn how to code
-better and to give something to the community.</p>
+<p><strong>After:</strong></p>
+<figure><img src="/images/new_networkx.png"
+    alt="Figure 2: Directed network rendering with proper arrows."><figcaption>
+      <p>Figure 2: Directed network rendering with proper arrows.</p>
+    </figcaption>
+</figure>
 
+<p>Working on this contribution taught me a lot about the internals of <code>networkx</code>’s drawing code and <code>matplotlib</code> more broadly. Contributing to an open-source project is one of the best ways to improve as a programmer.</p>
 
-              
-          </article>
-          
-
- <div class="pagination">
-  
-    <a class="pagination__item" href="http://localhost:1313/post/python-fold/">
-        <span class="pagination__label">Previous Post</span>
-        <span class="pagination__title">Folding python code in Emacs</span>
-    </a>
-  
-
-  
-    <a class="pagination__item" href="http://localhost:1313/post/pandas_network/">
-      <span class="pagination__label">Next Post</span>
-      <span class="pagination__title" >Using pandas for network analysis</span>
-    </a>
-  
-</div>
-
-          
-          <footer class="post__footer">
+        </div>
+        <div class="article-nav">
             
-
-
-<div class="social-icons">
-  
-     
-    
-      <a
-        class="social-icons__link"
-        title="twitter"
-        href="https://twitter.com/ruydg"
-        target="_blank"
-        rel="me noopener"
-      >
-        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/twitter.svg')"></div>
-      </a>
-    
-  
-     
-    
-      <a
-        class="social-icons__link"
-        title="github"
-        href="https://github.com/rodogi"
-        target="_blank"
-        rel="me noopener"
-      >
-        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/github.svg')"></div>
-      </a>
-    
-  
-     
-    
-      <a
-        class="social-icons__link"
-        title="scholar"
-        href="https://scholar.google.com/citations?user=Qe5ab4gAAAAJ&amp;hl=en"
-        target="_blank"
-        rel="me noopener"
-      >
-        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/scholar.svg')"></div>
-      </a>
-    
-     
+                <a href="/post/python-fold/">← Folding Python code in Emacs</a>
+            
+            
+                <a href="/post/pandas_network/">Using pandas for network analysis →</a>
+            
+        </div>
+    </article>
 </div>
-
-            <p></p>
-          </footer>
-          </div>
-      </div>
-      
-    </div>
-    
 
     </main>
     <footer>
     <div class="container">
-      <p>© 2025 Rodrigo Dorantes Gilardi. All rights reserved.</p>
+      <p>© 2026 Rodrigo Dorantes Gilardi. All rights reserved.</p>
     </div>
   </footer>
   </body>

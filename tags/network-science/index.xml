@@ -2,17 +2,38 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Network Science on Rodrigo Dorantes Gilardi</title>
-    <link>http://localhost:1313/tags/network-science/</link>
+    <link>https://rodogi.github.io/tags/network-science/</link>
     <description>Recent content in Network Science on Rodrigo Dorantes Gilardi</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 10 Sep 2020 00:00:00 -0500</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/network-science/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 01 Sep 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://rodogi.github.io/tags/network-science/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AI and Scientific Knowledge</title>
+      <link>https://rodogi.github.io/research/ai-scientific-knowledge/</link>
+      <pubDate>Sun, 01 Sep 2024 00:00:00 +0000</pubDate>
+      <guid>https://rodogi.github.io/research/ai-scientific-knowledge/</guid>
+      <description>&lt;p&gt;Large language models (LLMs) are rapidly becoming tools for scientific information retrieval, yet their ability to recognize scientists and their contributions is far from uniform. In this work, we audit how three leading LLMs—GPT-4o, Claude 3.5 Sonnet, and Gemini 1.5 Pro—recognize over 100,000 physicists across the productivity spectrum.&lt;/p&gt;&#xA;&lt;p&gt;Our analysis reveals systematic disparities: LLMs are significantly better at recognizing male scientists and those affiliated with Western institutions, mirroring and amplifying existing biases in scientific visibility. We trace these gaps in part to Wikipedia, which serves as a key training source and exhibits similar patterns of coverage inequality. The findings highlight that as LLMs become embedded in scientific workflows—from literature search to peer review—they risk reinforcing the unequal recognition structures already present in academia.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Inspirational Cohorts</title>
+      <link>https://rodogi.github.io/research/inspirational-cohorts/</link>
+      <pubDate>Sat, 01 Jun 2024 00:00:00 +0000</pubDate>
+      <guid>https://rodogi.github.io/research/inspirational-cohorts/</guid>
+      <description>&lt;p&gt;What makes certain groups of people catalyze disproportionate creative or scientific output? This project, funded by the &lt;a href=&#34;https://www.templeton.org/grant/inspirational-cohorts-and-the-science-of-purpose&#34; &#xA;  &#xA;   target=&#34;_blank&#34; rel=&#34;noreferrer noopener&#34; &#xA;&gt;John Templeton Foundation&lt;/a&gt;, takes a data-driven approach to identifying and understanding inspirational cohorts—clusters of individuals whose collective interactions spark transformative ideas.&lt;/p&gt;&#xA;&lt;p&gt;Combining network science, natural language processing, and large language models, the project pursues three interconnected goals: (1) mapping the structure and dynamics of inspirational communities across history, (2) understanding how cultural and institutional contexts shape the emergence of these cohorts, and (3) applying the Science of Purpose framework to uncover how shared purpose drives collective achievement.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>NetMedPy</title>
+      <link>https://rodogi.github.io/research/netmedpy/</link>
+      <pubDate>Fri, 01 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://rodogi.github.io/research/netmedpy/</guid>
+      <description>&lt;p&gt;Network medicine views diseases as localized disruptions in networks of genes, proteins, and other molecular entities, offering a framework to understand how biological systems communicate and fail. NetMedPy is an open-source Python package that streamlines large-scale network medicine analyses, enabling researchers to evaluate network localization, compute proximity and separation between biological entities, and screen thousands of drug–disease pairs efficiently.&lt;/p&gt;&#xA;&lt;p&gt;The package extends traditional approaches by providing four built-in distance metrics (shortest paths, random walk, biased random walk, and communicability) and four null models (degree match, degree logarithmic binning, strength logarithmic binning, and uniform), while also supporting user-defined custom metrics. By leveraging precomputed distance matrices, NetMedPy optimizes calculations for large interactomes, making network medicine screening practical at scale.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Crime and urban landscape</title>
-      <link>http://localhost:1313/research/crime/</link>
+      <link>https://rodogi.github.io/research/crime/</link>
       <pubDate>Thu, 10 Sep 2020 00:00:00 -0500</pubDate>
-      <guid>http://localhost:1313/research/crime/</guid>
+      <guid>https://rodogi.github.io/research/crime/</guid>
       <description></description>
     </item>
   </channel>

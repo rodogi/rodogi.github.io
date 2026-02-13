@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
@@ -17,455 +17,261 @@
     <nav>
     <div class="container">
       
-        <a href="/">Home</a>
+        <a href="/">home</a>
       
-        <a href="/research">Research</a>
+        <a href="/research">research</a>
       
-        <a href="/resume/resume.pdf">CV</a>
+        <a href="/teaching">teaching</a>
+      
+        <a href="/post">blog</a>
+      
+        <a href="/cv">cv</a>
       
     </div>
   </nav>
     <main>
       
-    
-
-    <div class="flex-wrapper">
-      <div class="post__container">
-        <div class="post">
-          <header class="post__header">
-            <h1 id="post__title">Emacs config file</h1>
-            <time datetime="2019-09-26 00:00:00 -0500 -0500" class="post__date">Sep 26 2019</time> 
-          </header>
-          <article class="post__content">
-              
-<p>I recently went for a full migration to an <code>org</code> file, and things be said, my config file looks way
-more tidy. I recommend to make the change to have a more <strong>literal programming</strong> kind of <code>init</code> file.</p>
-<p>This file is of course continuously being updated, you can see the updated version <a href="https://github.com/rodogi/emacs/blob/master/config.org" 
+<div class="container">
+    <article class="research-article">
+        <div class="article-header">
+            <h1>Emacs config file</h1>
+            <div class="description">September 26, 2019 · Rodrigo Dorantes-Gilardi</div>
+        </div>
+        <div class="article-content">
+            <p>I recently migrated my configuration to an <code>org</code> file, and the result is much tidier—a proper literate programming approach to editor configuration. The file is continuously updated; see the latest version <a href="https://github.com/rodogi/emacs/blob/master/config.org" 
   
    target="_blank" rel="noreferrer noopener" 
 >here</a>.</p>
-<h2 id="personal-info">Personal info<a class="anchor" href="#personal-info">#</a></h2>
+<h2 id="personal-info">Personal info</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq <span style="color:#a6e22e">user-full-name</span> <span style="color:#e6db74">&#34;Rodrigo Dorantes Gilardi&#34;</span>
-</span></span><span style="display:flex;"><span>		user-mail-address <span style="color:#e6db74">&#34;rodgdor@gmail.com&#34;</span>
-</span></span><span style="display:flex;"><span>		calendar-latitude <span style="color:#ae81ff">19.4326</span>
-</span></span><span style="display:flex;"><span>		calendar-longitude <span style="color:#ae81ff">-99.13</span>
-</span></span><span style="display:flex;"><span>		calendar-location-name <span style="color:#e6db74">&#34;Mexico City&#34;</span>)
-</span></span></code></pre></div><h2 id="use-package"><code>use-package</code><a class="anchor" href="#use-package">#</a></h2>
-<p>This configuration is inspired by Harry Schwartz
-<a href="https://github.com/hrs/dotfiles/blob/master/emacs/.emacs.d/configuration.org" 
+</span></span><span style="display:flex;"><span>      user-mail-address <span style="color:#e6db74">&#34;rodgdor@gmail.com&#34;</span>
+</span></span><span style="display:flex;"><span>      calendar-latitude <span style="color:#ae81ff">19.4326</span>
+</span></span><span style="display:flex;"><span>      calendar-longitude <span style="color:#ae81ff">-99.13</span>
+</span></span><span style="display:flex;"><span>      calendar-location-name <span style="color:#e6db74">&#34;Mexico City&#34;</span>)
+</span></span></code></pre></div><h2 id="use-package">use-package</h2>
+<p>This configuration draws from Harry Schwartz’s <a href="https://github.com/hrs/dotfiles/blob/master/emacs/.emacs.d/configuration.org" 
   
    target="_blank" rel="noreferrer noopener" 
->config file</a>. So let&rsquo;s first start by setting <code>use-package</code>.</p>
-<p><code>use-package</code> is already installed in <code>init.el</code> file, but we want to make sure that all packages
-added for configuration are installed, for this we use <code>use-package-ensure</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(require <span style="color:#e6db74">&#39;use-package-ensure</span>)
+>config file</a>. Start by ensuring all packages are installed automatically:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(require \=<span style="color:#e6db74">&#39;use-package-ensure</span>)
 </span></span><span style="display:flex;"><span>(setq use-package-always-ensure <span style="color:#66d9ef">t</span>)
-</span></span></code></pre></div><p>Always compile packages, and use the newest version available.</p>
+</span></span></code></pre></div><p>Always compile packages and prefer the newest version:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(use-package auto-compile
-</span></span><span style="display:flex;"><span>	:config (auto-compile-on-load-mode))
-</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  :config (auto-compile-on-load-mode))
 </span></span><span style="display:flex;"><span>(setq load-prefer-newer <span style="color:#66d9ef">t</span>)
-</span></span></code></pre></div><h2 id="sensible-defaults">Sensible defaults<a class="anchor" href="#sensible-defaults">#</a></h2>
-<p>Some sensible, rational defaults that help when writing/reading code.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span><span style="color:#75715e">;; Set line numbers and relative mode</span>
-</span></span><span style="display:flex;"><span>(global-display-line-numbers-mode)
-</span></span><span style="display:flex;"><span><span style="color:#75715e">;; Ask y/n instead of yes/no</span>
-</span></span><span style="display:flex;"><span>(<span style="color:#a6e22e">fset</span> <span style="color:#e6db74">&#39;yes-or-no-p</span> <span style="color:#e6db74">&#39;y-or-n-p</span>)
-</span></span><span style="display:flex;"><span><span style="color:#75715e">;; When you double-click on a file in the Mac Finder open it as a</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">;; buffer in the existing Emacs frame, rather than creating a new</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">;; frame just for that file.</span>
+</span></span></code></pre></div><h2 id="sensible-defaults">Sensible defaults</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(global-display-line-numbers-mode)
+</span></span><span style="display:flex;"><span>(<span style="color:#a6e22e">fset</span> \=<span style="color:#e6db74">&#39;yes-or-no-p</span> \=<span style="color:#e6db74">&#39;y-or-n-p</span>)
 </span></span><span style="display:flex;"><span>(setq ns-pop-up-frames <span style="color:#66d9ef">nil</span>)
-</span></span></code></pre></div><p>More sensible indentation (2 instead of 8 spaces).</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq-default tab-width <span style="color:#ae81ff">2</span>)
-</span></span></code></pre></div><p>Remove the annoying bell sound from Emacs.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq ring-bell-function <span style="color:#e6db74">&#39;ignore</span>)
-</span></span></code></pre></div><p>Get proper line breaks, 100 for text and 80 for programming.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(dolist (hook <span style="color:#f92672">&#39;</span>(text-mode-hook latex-mode-hook tex-mode-hook))
-</span></span><span style="display:flex;"><span>	(add-hook hook (lambda () (set-fill-column <span style="color:#ae81ff">100</span>))))
-</span></span><span style="display:flex;"><span>(dolist (hook <span style="color:#f92672">&#39;</span>(python-mode-hook prog-mode-hook list-mode-hook))
-</span></span><span style="display:flex;"><span>	(add-hook hook (lambda () (set-fill-column <span style="color:#ae81ff">80</span>))))
-</span></span></code></pre></div><p>Wrap paragraphs automatically</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(add-hook <span style="color:#e6db74">&#39;text-mode-hook</span> <span style="color:#e6db74">&#39;auto-fill-mode</span>)
-</span></span><span style="display:flex;"><span>(add-hook <span style="color:#e6db74">&#39;org-mode-hook</span> <span style="color:#e6db74">&#39;auto-fill-mode</span>)
-</span></span></code></pre></div><p>Deal with pop-up windows better with <a href="https://github.com/m2ym/popwin-el" 
+</span></span><span style="display:flex;"><span>(setq-default tab-width <span style="color:#ae81ff">2</span>)
+</span></span><span style="display:flex;"><span>(setq ring-bell-function \=<span style="color:#e6db74">&#39;ignore</span>)
+</span></span></code></pre></div><p>Line wrapping: 100 columns for text, 80 for code:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(dolist (hook \=<span style="color:#f92672">&#39;</span>(text-mode-hook latex-mode-hook tex-mode-hook))
+</span></span><span style="display:flex;"><span>  (add-hook hook (lambda () (set-fill-column <span style="color:#ae81ff">100</span>))))
+</span></span><span style="display:flex;"><span>(dolist (hook \=<span style="color:#f92672">&#39;</span>(python-mode-hook prog-mode-hook list-mode-hook))
+</span></span><span style="display:flex;"><span>  (add-hook hook (lambda () (set-fill-column <span style="color:#ae81ff">80</span>))))
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(add-hook \=<span style="color:#e6db74">&#39;text-mode-hook</span> \=<span style="color:#e6db74">&#39;auto-fill-mode</span>)
+</span></span><span style="display:flex;"><span>(add-hook \=<span style="color:#e6db74">&#39;org-mode-hook</span> \=<span style="color:#e6db74">&#39;auto-fill-mode</span>)
+</span></span></code></pre></div><p>Better pop-up windows with <a href="https://github.com/m2ym/popwin-el" 
   
    target="_blank" rel="noreferrer noopener" 
->popwin</a>.</p>
+>popwin</a>, search occurrence counting with anzu:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(use-package popwin
-</span></span><span style="display:flex;"><span>	:config
-</span></span><span style="display:flex;"><span>	(popwin-mode <span style="color:#ae81ff">1</span>)
-</span></span><span style="display:flex;"><span>	<span style="color:#75715e">;; set all buffers to appear to the right</span>
-</span></span><span style="display:flex;"><span>	(push <span style="color:#f92672">&#39;</span>(help-mode :position right :width <span style="color:#ae81ff">0.45</span>) popwin:special-display-config))
-</span></span></code></pre></div><p>Count the number of occurrences of a word when searched.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(use-package anzu
-</span></span><span style="display:flex;"><span>	:config
-</span></span><span style="display:flex;"><span>	(global-anzu-mode <span style="color:#ae81ff">+1</span>)
-</span></span><span style="display:flex;"><span>	(global-set-key [remap query-replace] <span style="color:#e6db74">&#39;anzu-query-replace</span>)
-</span></span><span style="display:flex;"><span>	(global-set-key [remap query-replace-regexp] <span style="color:#e6db74">&#39;anzu-query-replace-regexp</span>))
-</span></span></code></pre></div><p>Set the number of the column</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq column-number-mode <span style="color:#ae81ff">1</span>)
-</span></span></code></pre></div><p>Stop the cursor from blinking.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(blink-cursor-mode <span style="color:#ae81ff">-1</span>)
-</span></span></code></pre></div><p>Disable auto backup files.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq-default backup-inhibited <span style="color:#66d9ef">t</span>)
-</span></span></code></pre></div><h2 id="evil">Evil<a class="anchor" href="#evil">#</a></h2>
-<p>Load evil.</p>
+</span></span><span style="display:flex;"><span>  :config
+</span></span><span style="display:flex;"><span>  (popwin-mode <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>  (push \=<span style="color:#f92672">&#39;</span>(help-mode :position right :width <span style="color:#ae81ff">0.45</span>) popwin:special-display-config))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(use-package anzu
+</span></span><span style="display:flex;"><span>  :config
+</span></span><span style="display:flex;"><span>  (global-anzu-mode <span style="color:#ae81ff">+1</span>)
+</span></span><span style="display:flex;"><span>  (global-set-key [remap query-replace] \=<span style="color:#e6db74">&#39;anzu-query-replace</span>)
+</span></span><span style="display:flex;"><span>  (global-set-key [remap query-replace-regexp] \=<span style="color:#e6db74">&#39;anzu-query-replace-regexp</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(setq column-number-mode <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>(blink-cursor-mode <span style="color:#ae81ff">-1</span>)
+</span></span><span style="display:flex;"><span>(setq-default backup-inhibited <span style="color:#66d9ef">t</span>)
+</span></span></code></pre></div><h2 id="evil">Evil</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(use-package evil
-</span></span><span style="display:flex;"><span>	:config
-</span></span><span style="display:flex;"><span>	(evil-mode <span style="color:#ae81ff">1</span>))
-</span></span></code></pre></div><p>Enable vim-surround everywhere.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(use-package evil-surround
-</span></span><span style="display:flex;"><span>	:config
-</span></span><span style="display:flex;"><span>	(global-evil-surround-mode <span style="color:#ae81ff">1</span>))
-</span></span></code></pre></div><p>Use up or down-stream search of visually selected object.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(use-package evil-escape
-</span></span><span style="display:flex;"><span>:init
-</span></span><span style="display:flex;"><span>(evil-escape-mode)
-</span></span><span style="display:flex;"><span>:config
-</span></span><span style="display:flex;"><span>(setq-default evil-escape-key-sequence <span style="color:#e6db74">&#34;jk&#34;</span>))
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(use-package evil-visualstar
-</span></span><span style="display:flex;"><span>		:config
-</span></span><span style="display:flex;"><span>		(global-evil-visualstar-mode)
-</span></span><span style="display:flex;"><span>		(setq evil-visualstar/persistent <span style="color:#66d9ef">nil</span>))
-</span></span></code></pre></div><h2 id="ui">UI<a class="anchor" href="#ui">#</a></h2>
-<p>Remove the scroll bar and the menu.</p>
+</span></span><span style="display:flex;"><span>  :config (evil-mode <span style="color:#ae81ff">1</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(use-package evil-surround
+</span></span><span style="display:flex;"><span>  :config (global-evil-surround-mode <span style="color:#ae81ff">1</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(use-package evil-escape
+</span></span><span style="display:flex;"><span>  :init (evil-escape-mode)
+</span></span><span style="display:flex;"><span>  :config (setq-default evil-escape-key-sequence <span style="color:#e6db74">&#34;jk&#34;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(use-package evil-visualstar
+</span></span><span style="display:flex;"><span>  :config
+</span></span><span style="display:flex;"><span>  (global-evil-visualstar-mode)
+</span></span><span style="display:flex;"><span>  (setq evil-visualstar/persistent <span style="color:#66d9ef">nil</span>))
+</span></span></code></pre></div><h2 id="ui">UI</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(tool-bar-mode <span style="color:#ae81ff">0</span>)
 </span></span><span style="display:flex;"><span>(menu-bar-mode <span style="color:#ae81ff">0</span>)
 </span></span><span style="display:flex;"><span>(scroll-bar-mode <span style="color:#ae81ff">0</span>)
 </span></span><span style="display:flex;"><span>(<span style="color:#a6e22e">set-window-scroll-bars</span> (<span style="color:#a6e22e">minibuffer-window</span>) <span style="color:#66d9ef">nil</span> <span style="color:#66d9ef">nil</span>)
-</span></span></code></pre></div><p>Use full-path-name of file in window</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq frame-title-format
-</span></span><span style="display:flex;"><span>			<span style="color:#f92672">&#39;</span>((:eval (if (<span style="color:#a6e22e">buffer-file-name</span>)
-</span></span><span style="display:flex;"><span>									 (abbreviate-file-name (<span style="color:#a6e22e">buffer-file-name</span>))
-</span></span><span style="display:flex;"><span>								 <span style="color:#e6db74">&#34;%b&#34;</span>))))
-</span></span></code></pre></div><p>Use zenburn theme and set font and mode bar.</p>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(setq frame-title-format
+</span></span><span style="display:flex;"><span>      \=<span style="color:#f92672">&#39;</span>((:eval (if (<span style="color:#a6e22e">buffer-file-name</span>)
+</span></span><span style="display:flex;"><span>                   (abbreviate-file-name (<span style="color:#a6e22e">buffer-file-name</span>))
+</span></span><span style="display:flex;"><span>                 <span style="color:#e6db74">&#34;%b&#34;</span>))))
+</span></span></code></pre></div><p>Zenburn theme with moody mode line:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(use-package zenburn-theme
-</span></span><span style="display:flex;"><span>	:config
-</span></span><span style="display:flex;"><span>	(load-theme <span style="color:#e6db74">&#39;zenburn</span> <span style="color:#66d9ef">t</span>)
-</span></span><span style="display:flex;"><span>	(let ((line (face-attribute <span style="color:#e6db74">&#39;mode-line</span> :underline)))
-</span></span><span style="display:flex;"><span>		(set-face-attribute <span style="color:#e6db74">&#39;mode-line</span>          <span style="color:#66d9ef">nil</span> :overline   line)
-</span></span><span style="display:flex;"><span>		(set-face-attribute <span style="color:#e6db74">&#39;mode-line-inactive</span> <span style="color:#66d9ef">nil</span> :overline   line)
-</span></span><span style="display:flex;"><span>		(set-face-attribute <span style="color:#e6db74">&#39;mode-line-inactive</span> <span style="color:#66d9ef">nil</span> :underline  line)
-</span></span><span style="display:flex;"><span>		(set-face-attribute <span style="color:#e6db74">&#39;mode-line</span>          <span style="color:#66d9ef">nil</span> :box        <span style="color:#66d9ef">nil</span>)
-</span></span><span style="display:flex;"><span>		(set-face-attribute <span style="color:#e6db74">&#39;mode-line-inactive</span> <span style="color:#66d9ef">nil</span> :box        <span style="color:#66d9ef">nil</span>)
-</span></span><span style="display:flex;"><span>		(set-face-attribute <span style="color:#e6db74">&#39;mode-line-inactive</span> <span style="color:#66d9ef">nil</span> :background <span style="color:#e6db74">&#34;#f9f2d9&#34;</span>)))
+</span></span><span style="display:flex;"><span>  :config
+</span></span><span style="display:flex;"><span>  (load-theme \=<span style="color:#e6db74">&#39;zenburn</span> <span style="color:#66d9ef">t</span>)
+</span></span><span style="display:flex;"><span>  (let ((line (face-attribute \=<span style="color:#e6db74">&#39;mode-line</span> :underline)))
+</span></span><span style="display:flex;"><span>    (set-face-attribute \=<span style="color:#e6db74">&#39;mode-line</span> <span style="color:#66d9ef">nil</span> :overline line)
+</span></span><span style="display:flex;"><span>    (set-face-attribute \=<span style="color:#e6db74">&#39;mode-line-inactive</span> <span style="color:#66d9ef">nil</span> :overline line)
+</span></span><span style="display:flex;"><span>    (set-face-attribute \=<span style="color:#e6db74">&#39;mode-line-inactive</span> <span style="color:#66d9ef">nil</span> :underline line)
+</span></span><span style="display:flex;"><span>    (set-face-attribute \=<span style="color:#e6db74">&#39;mode-line</span> <span style="color:#66d9ef">nil</span> :box <span style="color:#66d9ef">nil</span>)
+</span></span><span style="display:flex;"><span>    (set-face-attribute \=<span style="color:#e6db74">&#39;mode-line-inactive</span> <span style="color:#66d9ef">nil</span> :box <span style="color:#66d9ef">nil</span>)
+</span></span><span style="display:flex;"><span>    (set-face-attribute \=<span style="color:#e6db74">&#39;mode-line-inactive</span> <span style="color:#66d9ef">nil</span> :background <span style="color:#e6db74">&#34;#f9f2d9&#34;</span>)))
 </span></span><span style="display:flex;"><span>(set-frame-font <span style="color:#e6db74">&#34;IBM Plex Mono-14&#34;</span> <span style="color:#66d9ef">nil</span> <span style="color:#66d9ef">t</span>)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">;; Use moody for the mode bar</span>
 </span></span><span style="display:flex;"><span>(use-package moody
-</span></span><span style="display:flex;"><span>	:config
-</span></span><span style="display:flex;"><span>	(setq x-underline-at-descent-line <span style="color:#66d9ef">t</span>)
-</span></span><span style="display:flex;"><span>	(moody-replace-mode-line-buffer-identification)
-</span></span><span style="display:flex;"><span>	(moody-replace-vc-mode))
-</span></span></code></pre></div><p>Hide minor modes from bar.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(use-package minions
-</span></span><span style="display:flex;"><span>	:config
-</span></span><span style="display:flex;"><span>	(setq minions-mode-line-lighter <span style="color:#e6db74">&#34;&#34;</span>
-</span></span><span style="display:flex;"><span>				minions-mode-line-delimiters <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;&#34;</span>))
-</span></span><span style="display:flex;"><span>	(minions-mode <span style="color:#ae81ff">1</span>))
-</span></span></code></pre></div><p>Highlight the current line.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(global-hl-line-mode)
-</span></span></code></pre></div><p>Highlight uncommited changes.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(use-package diff-hl
-</span></span><span style="display:flex;"><span>	:config
-</span></span><span style="display:flex;"><span>	(add-hook <span style="color:#e6db74">&#39;prog-mode-hook</span> <span style="color:#e6db74">&#39;turn-on-diff-hl-mode</span>))
-</span></span></code></pre></div><p>Change the specs for the cursor.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq evil-insert-state-cursor <span style="color:#f92672">&#39;</span>((bar <span style="color:#f92672">.</span> <span style="color:#ae81ff">2</span>) <span style="color:#e6db74">&#34;yellow&#34;</span>)
-</span></span><span style="display:flex;"><span>			evil-normal-state-cursor <span style="color:#f92672">&#39;</span>(box <span style="color:#e6db74">&#34;yellow&#34;</span>))
-</span></span></code></pre></div><h2 id="spelling">Spelling<a class="anchor" href="#spelling">#</a></h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(dolist (hook <span style="color:#f92672">&#39;</span>(org-mode-hook latex-mode-hook tex-mode-hook git-commit-mode-hook))
-</span></span><span style="display:flex;"><span>	(add-hook hook (lambda () (flyspell-mode <span style="color:#ae81ff">1</span>))))
-</span></span><span style="display:flex;"><span><span style="color:#75715e">;;; Setting english to be the spelling language</span>
+</span></span><span style="display:flex;"><span>  :config
+</span></span><span style="display:flex;"><span>  (setq x-underline-at-descent-line <span style="color:#66d9ef">t</span>)
+</span></span><span style="display:flex;"><span>  (moody-replace-mode-line-buffer-identification)
+</span></span><span style="display:flex;"><span>  (moody-replace-vc-mode))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(use-package minions
+</span></span><span style="display:flex;"><span>  :config
+</span></span><span style="display:flex;"><span>  (setq minions-mode-line-lighter <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>        minions-mode-line-delimiters \=<span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;&#34;</span>))
+</span></span><span style="display:flex;"><span>  (minions-mode <span style="color:#ae81ff">1</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(global-hl-line-mode)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(use-package diff-hl
+</span></span><span style="display:flex;"><span>  :config (add-hook \=<span style="color:#e6db74">&#39;prog-mode-hook</span> \=<span style="color:#e6db74">&#39;turn-on-diff-hl-mode</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(setq evil-insert-state-cursor \=<span style="color:#f92672">&#39;</span>((bar <span style="color:#f92672">.</span> <span style="color:#ae81ff">2</span>) <span style="color:#e6db74">&#34;yellow&#34;</span>)
+</span></span><span style="display:flex;"><span>      evil-normal-state-cursor \=<span style="color:#f92672">&#39;</span>(box <span style="color:#e6db74">&#34;yellow&#34;</span>))
+</span></span></code></pre></div><h2 id="spelling">Spelling</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(dolist (hook \=<span style="color:#f92672">&#39;</span>(org-mode-hook latex-mode-hook tex-mode-hook git-commit-mode-hook))
+</span></span><span style="display:flex;"><span>  (add-hook hook (lambda () (flyspell-mode <span style="color:#ae81ff">1</span>))))
 </span></span><span style="display:flex;"><span>(setq ispell-program-name <span style="color:#e6db74">&#34;/usr/local/bin/aspell&#34;</span>)
 </span></span><span style="display:flex;"><span>(setq ispell-dictionary <span style="color:#e6db74">&#34;english&#34;</span>)
-</span></span></code></pre></div><h2 id="python">Python<a class="anchor" href="#python">#</a></h2>
-<h3 id="basics">Basics<a class="anchor" href="#basics">#</a></h3>
-<p>We start by making the symbol `_` as part of the word.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(add-hook <span style="color:#e6db74">&#39;python-mode-hook</span> <span style="color:#a6e22e">#&#39;</span>(lambda () (<span style="color:#a6e22e">modify-syntax-entry</span> <span style="color:#e6db74">?_</span> <span style="color:#e6db74">&#34;w&#34;</span>)))
-</span></span></code></pre></div><h3 id="elpy">Elpy<a class="anchor" href="#elpy">#</a></h3>
-<p>Let&rsquo;s start with installing <code>elpy</code>. Also, let&rsquo;s add jedi as the</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(use-package elpy
-</span></span><span style="display:flex;"><span>		:init
-</span></span><span style="display:flex;"><span>		(elpy-enable)
-</span></span><span style="display:flex;"><span>		:bind (<span style="color:#e6db74">&#34;M-.&#34;</span> <span style="color:#f92672">.</span> elpy-goto-definition)
+</span></span></code></pre></div><h2 id="python">Python</h2>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(add-hook \=<span style="color:#e6db74">&#39;python-mode-hook</span> <span style="color:#960050;background-color:#1e0010">#</span>\=<span style="color:#f92672">&#39;</span>(lambda () (<span style="color:#a6e22e">modify-syntax-entry</span> <span style="color:#e6db74">?_</span> <span style="color:#e6db74">&#34;w&#34;</span>)))
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>		:config
-</span></span><span style="display:flex;"><span>		<span style="color:#75715e">;; The path to python3</span>
-</span></span><span style="display:flex;"><span>		(setq exec-path (<span style="color:#a6e22e">append</span> exec-path <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;/usr/local/bin&#34;</span>)))
-</span></span><span style="display:flex;"><span>		(setenv <span style="color:#e6db74">&#34;PATH&#34;</span> (<span style="color:#a6e22e">concat</span> (getenv <span style="color:#e6db74">&#34;PATH&#34;</span>) <span style="color:#e6db74">&#34;:/usr/local/bin&#34;</span>))
-</span></span><span style="display:flex;"><span>		(setq elpy-rpc-python-command <span style="color:#e6db74">&#34;/usr/local/bin/python3&#34;</span>))
-</span></span></code></pre></div><p>Then a little bit of configuration for the interpreter.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(use-package python
-</span></span><span style="display:flex;"><span>		:mode (<span style="color:#e6db74">&#34;\\.py\\&#39;&#34;</span> <span style="color:#f92672">.</span> python-mode)
-</span></span><span style="display:flex;"><span>		:interpreter (<span style="color:#e6db74">&#34;python&#34;</span> <span style="color:#f92672">.</span> python-mode)
-</span></span><span style="display:flex;"><span>		:config
-</span></span><span style="display:flex;"><span>		(setq python-shell-interpreter <span style="color:#e6db74">&#34;/usr/local/bin/jupyter&#34;</span>
-</span></span><span style="display:flex;"><span>				python-shell-interpreter-args <span style="color:#e6db74">&#34;console --simple-prompt&#34;</span>
-</span></span><span style="display:flex;"><span>				python-shell-prompt-detect-failure-warning <span style="color:#66d9ef">nil</span>)
-</span></span><span style="display:flex;"><span>add-to-list <span style="color:#e6db74">&#39;python-shell-completion-native-disabled-interpreters</span>
-</span></span><span style="display:flex;"><span>						<span style="color:#e6db74">&#34;jupyter&#34;</span>))
-</span></span></code></pre></div><p>Use <code>jedi</code> for autocompletion. If used for the first time, we need to run the command
-<code>M-x jedi:install-server</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(use-package jedi
-</span></span><span style="display:flex;"><span>	:config
-</span></span><span style="display:flex;"><span>	(add-hook <span style="color:#e6db74">&#39;python-mode-hook</span> <span style="color:#e6db74">&#39;jedi:setup</span>)
-</span></span><span style="display:flex;"><span>	(setq jedi:complete-on-dot <span style="color:#66d9ef">t</span>))
-</span></span></code></pre></div><p>Use flycheck for syntax checking.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(use-package flycheck
-</span></span><span style="display:flex;"><span>	:config
-</span></span><span style="display:flex;"><span>	(add-hook <span style="color:#e6db74">&#39;elpy-mode-hook</span> <span style="color:#e6db74">&#39;flycheck-mode</span>))
-</span></span></code></pre></div><p>Format according to pep-8 on save.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(use-package py-autopep8
-</span></span><span style="display:flex;"><span>	:config
-</span></span><span style="display:flex;"><span>	(add-hook <span style="color:#e6db74">&#39;elpy-mode-hook</span> <span style="color:#e6db74">&#39;py-autopep8-enable-on-save</span>))
-</span></span></code></pre></div><h2 id="org">Org<a class="anchor" href="#org">#</a></h2>
-<h3 id="general">General<a class="anchor" href="#general">#</a></h3>
-<p>First things first</p>
+</span></span><span style="display:flex;"><span>(use-package elpy
+</span></span><span style="display:flex;"><span>  :init (elpy-enable)
+</span></span><span style="display:flex;"><span>  :bind (<span style="color:#e6db74">&#34;M-.&#34;</span> <span style="color:#f92672">.</span> elpy-goto-definition)
+</span></span><span style="display:flex;"><span>  :config
+</span></span><span style="display:flex;"><span>  (setq exec-path (<span style="color:#a6e22e">append</span> exec-path \=<span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;/usr/local/bin&#34;</span>)))
+</span></span><span style="display:flex;"><span>  (setenv <span style="color:#e6db74">&#34;PATH&#34;</span> (<span style="color:#a6e22e">concat</span> (getenv <span style="color:#e6db74">&#34;PATH&#34;</span>) <span style="color:#e6db74">&#34;:/usr/local/bin&#34;</span>))
+</span></span><span style="display:flex;"><span>  (setq elpy-rpc-python-command <span style="color:#e6db74">&#34;/usr/local/bin/python3&#34;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(use-package python
+</span></span><span style="display:flex;"><span>  :mode (<span style="color:#e6db74">&#34;\\.py\\\&#39;&#34;</span> <span style="color:#f92672">.</span> python-mode)
+</span></span><span style="display:flex;"><span>  :interpreter (<span style="color:#e6db74">&#34;python&#34;</span> <span style="color:#f92672">.</span> python-mode)
+</span></span><span style="display:flex;"><span>  :config
+</span></span><span style="display:flex;"><span>  (setq python-shell-interpreter <span style="color:#e6db74">&#34;/usr/local/bin/jupyter&#34;</span>
+</span></span><span style="display:flex;"><span>        python-shell-interpreter-args <span style="color:#e6db74">&#34;console --simple-prompt&#34;</span>
+</span></span><span style="display:flex;"><span>        python-shell-prompt-detect-failure-warning <span style="color:#66d9ef">nil</span>)
+</span></span><span style="display:flex;"><span>  (add-to-list \=<span style="color:#e6db74">&#39;python-shell-completion-native-disabled-interpreters</span> <span style="color:#e6db74">&#34;jupyter&#34;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(use-package jedi
+</span></span><span style="display:flex;"><span>  :config
+</span></span><span style="display:flex;"><span>  (add-hook \=<span style="color:#e6db74">&#39;python-mode-hook</span> \=<span style="color:#e6db74">&#39;jedi:setup</span>)
+</span></span><span style="display:flex;"><span>  (setq jedi:complete-on-dot <span style="color:#66d9ef">t</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(use-package flycheck
+</span></span><span style="display:flex;"><span>  :config (add-hook \=<span style="color:#e6db74">&#39;elpy-mode-hook</span> \=<span style="color:#e6db74">&#39;flycheck-mode</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(use-package py-autopep8
+</span></span><span style="display:flex;"><span>  :config (add-hook \=<span style="color:#e6db74">&#39;elpy-mode-hook</span> \=<span style="color:#e6db74">&#39;py-autopep8-enable-on-save</span>))
+</span></span></code></pre></div><h2 id="org">Org</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(use-package org)
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">;; The following is to fix a bug to be able to expand</span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e">;; &#39;&lt;s&#39; to code block.</span>
 </span></span><span style="display:flex;"><span>(when (version&lt;= <span style="color:#e6db74">&#34;9.2&#34;</span> (org-version))
-</span></span><span style="display:flex;"><span>		(require <span style="color:#e6db74">&#39;org-tempo</span>))
-</span></span></code></pre></div><h3 id="display">Display<a class="anchor" href="#display">#</a></h3>
-<p>Use bullets instead of stars.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(use-package org-bullets
-</span></span><span style="display:flex;"><span>	:init
-</span></span><span style="display:flex;"><span>	(add-hook <span style="color:#e6db74">&#39;org-mode-hook</span> <span style="color:#e6db74">&#39;org-bullets-mode</span>))
-</span></span></code></pre></div><p>Let&rsquo;s add an arrow pointing down if there is some content. Also, let&rsquo;s use syntax highlighting
-inside of code blocks.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq org-ellipsis <span style="color:#e6db74">&#34;⤵&#34;</span>)
+</span></span><span style="display:flex;"><span>  (require \=<span style="color:#e6db74">&#39;org-tempo</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(use-package org-bullets
+</span></span><span style="display:flex;"><span>  :init (add-hook \=<span style="color:#e6db74">&#39;org-mode-hook</span> \=<span style="color:#e6db74">&#39;org-bullets-mode</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(setq org-ellipsis <span style="color:#e6db74">&#34;⤵&#34;</span>)
 </span></span><span style="display:flex;"><span>(setq org-src-tab-acts-natively <span style="color:#66d9ef">t</span>)
-</span></span></code></pre></div><h3 id="agenda">Agenda<a class="anchor" href="#agenda">#</a></h3>
-<p>Add key-binding <code>\C-ca</code> to invoke agenda. Also, add a directory for agenda files inside Dropbox.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(global-set-key <span style="color:#e6db74">&#34;\C-ca&#34;</span> <span style="color:#e6db74">&#39;org-agenda</span>)
-</span></span><span style="display:flex;"><span>(setq org-agenda-files <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Dropbox/org/&#34;</span>))
-</span></span></code></pre></div><p>TODO headers can have more states (additionally to <code>TODO</code> and <code>DONE</code>), also let&rsquo;s add a file to
-archive all the TODO trees completed.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span><span style="color:#75715e">;; Workflow of TODO keywords</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(global-set-key <span style="color:#e6db74">&#34;\C-ca&#34;</span> \=<span style="color:#e6db74">&#39;org-agenda</span>)
+</span></span><span style="display:flex;"><span>(setq org-agenda-files \=<span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;~/Dropbox/org/&#34;</span>))
+</span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>(setq org-todo-keywords
-</span></span><span style="display:flex;"><span>			<span style="color:#f92672">&#39;</span>((sequence <span style="color:#e6db74">&#34;TODO(t)&#34;</span> <span style="color:#e6db74">&#34;|&#34;</span> <span style="color:#e6db74">&#34;DONE(d!)&#34;</span> <span style="color:#e6db74">&#34;CANCELED(c@/!)&#34;</span>)))
-</span></span><span style="display:flex;"><span><span style="color:#75715e">;; archive in a datetree</span>
+</span></span><span style="display:flex;"><span>      \=<span style="color:#f92672">&#39;</span>((sequence <span style="color:#e6db74">&#34;TODO(t)&#34;</span> <span style="color:#e6db74">&#34;|&#34;</span> <span style="color:#e6db74">&#34;DONE(d!)&#34;</span> <span style="color:#e6db74">&#34;CANCELED(c@/!)&#34;</span>)))
 </span></span><span style="display:flex;"><span>(setq org-archive-location <span style="color:#e6db74">&#34;~/org/archive.org::datetree/&#34;</span>)
-</span></span><span style="display:flex;"><span><span style="color:#75715e">;; Close TODOs with a timestamp</span>
-</span></span><span style="display:flex;"><span>(setq org-log-done <span style="color:#e6db74">&#39;time</span>)
-</span></span></code></pre></div><h3 id="capture">Capture<a class="anchor" href="#capture">#</a></h3>
-<p>Emacs allows to capture ideas &ldquo;on the fly&rdquo; using a template, that way, you don&rsquo;t need to stop
-working on something else when the idea pops-up. We, first are going to create a keybinding for that
-function and then we will create the templates.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(global-set-key <span style="color:#e6db74">&#34;\C-cc&#34;</span> <span style="color:#e6db74">&#39;org-capture</span>)
+</span></span><span style="display:flex;"><span>(setq org-log-done \=<span style="color:#e6db74">&#39;time</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(global-set-key <span style="color:#e6db74">&#34;\C-cc&#34;</span> \=<span style="color:#e6db74">&#39;org-capture</span>)
 </span></span><span style="display:flex;"><span>(setq org-capture-templates
-</span></span><span style="display:flex;"><span>	<span style="color:#f92672">&#39;</span>((<span style="color:#e6db74">&#34;b&#34;</span> <span style="color:#e6db74">&#34;Blog idea&#34;</span>
-</span></span><span style="display:flex;"><span>				 entry
-</span></span><span style="display:flex;"><span>				 (file <span style="color:#e6db74">&#34;~/Dropbox/notes/blog_ideas.org&#34;</span>)
-</span></span><span style="display:flex;"><span>				 <span style="color:#e6db74">&#34;* %?\n&#34;</span>)))
-</span></span></code></pre></div><h3 id="export">Export<a class="anchor" href="#export">#</a></h3>
-<h4 id="classes">Classes</h4>
-<p>Allow export to different classes, including beamer, markdown, hugo, latex&hellip;</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(require <span style="color:#e6db74">&#39;ox-beamer</span>)
-</span></span><span style="display:flex;"><span>(use-package ox-hugo
-</span></span><span style="display:flex;"><span>	:after ox)
-</span></span><span style="display:flex;"><span><span style="color:#75715e">;; Pretty html</span>
+</span></span><span style="display:flex;"><span>  \=<span style="color:#f92672">&#39;</span>((<span style="color:#e6db74">&#34;b&#34;</span> <span style="color:#e6db74">&#34;Blog idea&#34;</span>
+</span></span><span style="display:flex;"><span>       entry
+</span></span><span style="display:flex;"><span>       (file <span style="color:#e6db74">&#34;~/Dropbox/notes/blog_ideas.org&#34;</span>)
+</span></span><span style="display:flex;"><span>       <span style="color:#e6db74">&#34;* %?\n&#34;</span>)))
+</span></span></code></pre></div><h3 id="export">Export</h3>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(require \=<span style="color:#e6db74">&#39;ox-beamer</span>)
+</span></span><span style="display:flex;"><span>(use-package ox-hugo :after ox)
 </span></span><span style="display:flex;"><span>(use-package ox-twbs)
-</span></span></code></pre></div><h4 id="code-blocks">Code blocks</h4>
-<p>Allow to evaluate code in <code>python</code>, <code>C</code>, <code>bash</code>, and <code>elisp</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(org-babel-do-load-languages
-</span></span><span style="display:flex;"><span> <span style="color:#e6db74">&#39;org-babel-load-languages</span> <span style="color:#f92672">&#39;</span>((C <span style="color:#f92672">.</span> <span style="color:#66d9ef">t</span>)
-</span></span><span style="display:flex;"><span>					 (python <span style="color:#f92672">.</span> <span style="color:#66d9ef">t</span>)
-</span></span><span style="display:flex;"><span>					 (emacs-lisp <span style="color:#f92672">.</span> <span style="color:#66d9ef">t</span>)
-</span></span><span style="display:flex;"><span>					 (shell <span style="color:#f92672">.</span> <span style="color:#66d9ef">t</span>)))
-</span></span></code></pre></div><p>Allow TAB to function normally inside code blocks.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq org-src-tab-acts-natively <span style="color:#66d9ef">t</span>)
-</span></span></code></pre></div><h4 id="latex">Latex</h4>
-<p>Set the process of compilation of a latex document.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq org-latex-pdf-process
-</span></span><span style="display:flex;"><span>			<span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f&#34;</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#e6db74">&#34;bibtex %b&#34;</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#e6db74">&#34;pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f&#34;</span>
-</span></span><span style="display:flex;"><span>		<span style="color:#e6db74">&#34;pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f&#34;</span>))
-</span></span></code></pre></div><p>Set sections used in latex section when exported.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(add-to-list <span style="color:#e6db74">&#39;org-latex-classes</span>
-</span></span><span style="display:flex;"><span>						 <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;article&#34;</span>
-</span></span><span style="display:flex;"><span>							 <span style="color:#e6db74">&#34;\\documentclass{article}&#34;</span>
-</span></span><span style="display:flex;"><span>							 (<span style="color:#e6db74">&#34;\\section{%s}&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;\\section*{%s}&#34;</span>)
-</span></span><span style="display:flex;"><span>							 (<span style="color:#e6db74">&#34;\\subsection{%s}&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;\\subsection*{%s}&#34;</span>)
-</span></span><span style="display:flex;"><span>							 (<span style="color:#e6db74">&#34;\\subsubsection{%s}&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;\\subsubsection*{%s}&#34;</span>)
-</span></span><span style="display:flex;"><span>							 (<span style="color:#e6db74">&#34;\\paragraph{%s}&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;\\paragraph*{%s}&#34;</span>)
-</span></span><span style="display:flex;"><span>							 (<span style="color:#e6db74">&#34;\\subparagraph{%s}&#34;</span> <span style="color:#f92672">.</span> <span style="color:#e6db74">&#34;\\subparagraph*{%s}&#34;</span>)))
-</span></span></code></pre></div><p>Include minted package in latex exports.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span><span style="color:#75715e">;;; Include minted package in all LaTeX reports</span>
-</span></span><span style="display:flex;"><span>(add-to-list <span style="color:#e6db74">&#39;org-latex-packages-alist</span> <span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;&#34;</span> <span style="color:#e6db74">&#34;minted&#34;</span>))
-</span></span><span style="display:flex;"><span>(setq org-latex-listing <span style="color:#e6db74">&#39;minted</span>)
-</span></span></code></pre></div><p>Use the incredible <code>org-ref</code> package.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(use-package org-ref)
-</span></span></code></pre></div><h2 id="magit">Magit<a class="anchor" href="#magit">#</a></h2>
-<p>Magit is a great package where I prefer its keybinding to <code>C-x g</code> rather than <code>C-x m</code>.</p>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(org-babel-do-load-languages
+</span></span><span style="display:flex;"><span> \=<span style="color:#e6db74">&#39;org-babel-load-languages</span> \=<span style="color:#f92672">&#39;</span>((C <span style="color:#f92672">.</span> <span style="color:#66d9ef">t</span>) (python <span style="color:#f92672">.</span> <span style="color:#66d9ef">t</span>) (emacs-lisp <span style="color:#f92672">.</span> <span style="color:#66d9ef">t</span>) (shell <span style="color:#f92672">.</span> <span style="color:#66d9ef">t</span>)))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(setq org-latex-pdf-process
+</span></span><span style="display:flex;"><span>      \=<span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;bibtex %b&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;pdflatex -shell-escape -interaction nonstopmode -output-directory %o %f&#34;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(add-to-list \=<span style="color:#e6db74">&#39;org-latex-packages-alist</span> \=<span style="color:#f92672">&#39;</span>(<span style="color:#e6db74">&#34;&#34;</span> <span style="color:#e6db74">&#34;minted&#34;</span>))
+</span></span><span style="display:flex;"><span>(setq org-latex-listing \=<span style="color:#e6db74">&#39;minted</span>)
+</span></span><span style="display:flex;"><span>(use-package org-ref)
+</span></span></code></pre></div><h2 id="magit">Magit</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(use-package magit
-</span></span><span style="display:flex;"><span>	:config
-</span></span><span style="display:flex;"><span>	(global-set-key (kbd <span style="color:#e6db74">&#34;C-x g&#34;</span>) <span style="color:#e6db74">&#39;magit-status</span>))
-</span></span></code></pre></div><h2 id="helm">Helm<a class="anchor" href="#helm">#</a></h2>
-<p>Helm is great for file exploration.</p>
+</span></span><span style="display:flex;"><span>  :config (global-set-key (kbd <span style="color:#e6db74">&#34;C-x g&#34;</span>) \=<span style="color:#e6db74">&#39;magit-status</span>))
+</span></span></code></pre></div><h2 id="helm">Helm</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(use-package helm
-</span></span><span style="display:flex;"><span>	:config
-</span></span><span style="display:flex;"><span>	(helm-mode <span style="color:#ae81ff">1</span>)
-</span></span><span style="display:flex;"><span>	(global-set-key (kbd <span style="color:#e6db74">&#34;C-x C-f&#34;</span>) <span style="color:#e6db74">&#39;helm-find-files</span>))
-</span></span></code></pre></div><p>Let&rsquo;s bind `C-f C-a` to <code>helm-apropos</code></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(global-set-key (kbd <span style="color:#e6db74">&#34;C-x C-a&#34;</span>) <span style="color:#e6db74">&#39;helm-apropos</span>)
-</span></span></code></pre></div><p>Let&rsquo;s look for commands with helm.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(global-set-key (kbd <span style="color:#e6db74">&#34;M-x&#34;</span>) <span style="color:#e6db74">&#39;helm-M-x</span>)
-</span></span></code></pre></div><p>Set helm to fuzzy matching.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq helm-M-x-fuzzy-match <span style="color:#66d9ef">t</span>)
-</span></span></code></pre></div><p>Show the kill-ring with helm</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(global-set-key (kbd <span style="color:#e6db74">&#34;M-y&#34;</span>) <span style="color:#e6db74">&#39;helm-show-kill-ring</span>)
-</span></span></code></pre></div><p>Get a better buffer to change buffers. Also, enable fuzzy matching in there.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>	(global-set-key (kbd <span style="color:#e6db74">&#34;C-x b&#34;</span>) <span style="color:#e6db74">&#39;helm-mini</span>)
-</span></span><span style="display:flex;"><span>(global-set-key (kbd <span style="color:#e6db74">&#34;C-x C-b&#34;</span>) <span style="color:#e6db74">&#39;helm-mini</span>)
-</span></span><span style="display:flex;"><span>	(setq helm-buffers-fuzzy-matching <span style="color:#66d9ef">t</span>
-</span></span><span style="display:flex;"><span>				helm-recentf-fuzzy-match    <span style="color:#66d9ef">t</span>)
-</span></span></code></pre></div><p>Let&rsquo;s set semantic-mode to be able to use `helm-semantic` and then bind it to &lsquo;C-x C-m&rsquo;.
-Bind heml-imenu to `C-x C-m`.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(use-package semantic
-</span></span><span style="display:flex;"><span>:config
-</span></span><span style="display:flex;"><span>(semantic-mode <span style="color:#ae81ff">1</span>))
-</span></span><span style="display:flex;"><span>(global-set-key (kbd <span style="color:#e6db74">&#34;C-x C-m&#34;</span>) <span style="color:#e6db74">&#39;helm-semantic-or-imenu</span>)
-</span></span></code></pre></div><p>Now let&rsquo;s make it fuzzy matchers.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq helm-semantic-fuzzy-match <span style="color:#66d9ef">t</span>
-</span></span><span style="display:flex;"><span>			helm-imenu-fuzzy-match    <span style="color:#66d9ef">t</span>)
-</span></span></code></pre></div><p>Use heml-occur with &lsquo;C-x C-o&rsquo;.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(global-set-key (kbd <span style="color:#e6db74">&#34;C-x C-o&#34;</span>) <span style="color:#e6db74">&#39;helm-occur</span>)
-</span></span></code></pre></div><h2 id="dired">Dired<a class="anchor" href="#dired">#</a></h2>
-<p>Switch the default `ls` to have the parameters `lhva`.</p>
-<ul>
-<li><code>l</code>: long format</li>
-<li><code>h</code>: human readable size</li>
-<li><code>S</code>: sort files by size</li>
-<li><code>a</code>: all files (including dotfiles)</li>
-<li><code>r</code>: reverse the sort</li>
-</ul>
-<!--listend-->
+</span></span><span style="display:flex;"><span>  :config
+</span></span><span style="display:flex;"><span>  (helm-mode <span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>  (global-set-key (kbd <span style="color:#e6db74">&#34;C-x C-f&#34;</span>) \=<span style="color:#e6db74">&#39;helm-find-files</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(global-set-key (kbd <span style="color:#e6db74">&#34;C-x C-a&#34;</span>) \=<span style="color:#e6db74">&#39;helm-apropos</span>)
+</span></span><span style="display:flex;"><span>(global-set-key (kbd <span style="color:#e6db74">&#34;M-x&#34;</span>) \=<span style="color:#e6db74">&#39;helm-M-x</span>)
+</span></span><span style="display:flex;"><span>(setq helm-M-x-fuzzy-match <span style="color:#66d9ef">t</span>)
+</span></span><span style="display:flex;"><span>(global-set-key (kbd <span style="color:#e6db74">&#34;M-y&#34;</span>) \=<span style="color:#e6db74">&#39;helm-show-kill-ring</span>)
+</span></span><span style="display:flex;"><span>(global-set-key (kbd <span style="color:#e6db74">&#34;C-x b&#34;</span>) \=<span style="color:#e6db74">&#39;helm-mini</span>)
+</span></span><span style="display:flex;"><span>(global-set-key (kbd <span style="color:#e6db74">&#34;C-x C-b&#34;</span>) \=<span style="color:#e6db74">&#39;helm-mini</span>)
+</span></span><span style="display:flex;"><span>(setq helm-buffers-fuzzy-matching <span style="color:#66d9ef">t</span>
+</span></span><span style="display:flex;"><span>      helm-recentf-fuzzy-match <span style="color:#66d9ef">t</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>(use-package semantic :config (semantic-mode <span style="color:#ae81ff">1</span>))
+</span></span><span style="display:flex;"><span>(global-set-key (kbd <span style="color:#e6db74">&#34;C-x C-m&#34;</span>) \=<span style="color:#e6db74">&#39;helm-semantic-or-imenu</span>)
+</span></span><span style="display:flex;"><span>(setq helm-semantic-fuzzy-match <span style="color:#66d9ef">t</span>
+</span></span><span style="display:flex;"><span>      helm-imenu-fuzzy-match <span style="color:#66d9ef">t</span>)
+</span></span><span style="display:flex;"><span>(global-set-key (kbd <span style="color:#e6db74">&#34;C-x C-o&#34;</span>) \=<span style="color:#e6db74">&#39;helm-occur</span>)
+</span></span></code></pre></div><h2 id="dired">Dired</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(setq dired-listing-switches <span style="color:#e6db74">&#34;-AlShr&#34;</span>)
-</span></span></code></pre></div><h2 id="projectile">Projectile<a class="anchor" href="#projectile">#</a></h2>
-<p>Projectile is a package to work on projects defined by a directory. Let&rsquo;s first install it.</p>
+</span></span></code></pre></div><h2 id="projectile">Projectile</h2>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-emacs-lisp" data-lang="emacs-lisp"><span style="display:flex;"><span>(use-package projectile
-</span></span><span style="display:flex;"><span>	:config
-</span></span><span style="display:flex;"><span>	(projectile-mode <span style="color:#ae81ff">+1</span>)
-</span></span><span style="display:flex;"><span>	(<span style="color:#a6e22e">define-key</span> projectile-mode-map (kbd <span style="color:#e6db74">&#34;s-p&#34;</span>) <span style="color:#e6db74">&#39;projectile-command-map</span>)
-</span></span><span style="display:flex;"><span>	(<span style="color:#a6e22e">define-key</span> projectile-mode-map (kbd <span style="color:#e6db74">&#34;C-c p&#34;</span>) <span style="color:#e6db74">&#39;projectile-command-map</span>))
+</span></span><span style="display:flex;"><span>  :config
+</span></span><span style="display:flex;"><span>  (projectile-mode <span style="color:#ae81ff">+1</span>)
+</span></span><span style="display:flex;"><span>  (<span style="color:#a6e22e">define-key</span> projectile-mode-map (kbd <span style="color:#e6db74">&#34;s-p&#34;</span>) \=<span style="color:#e6db74">&#39;projectile-command-map</span>)
+</span></span><span style="display:flex;"><span>  (<span style="color:#a6e22e">define-key</span> projectile-mode-map (kbd <span style="color:#e6db74">&#34;C-c p&#34;</span>) \=<span style="color:#e6db74">&#39;projectile-command-map</span>))
 </span></span></code></pre></div>
-
-              
-          </article>
-          
-
- <div class="pagination">
-  
-    <a class="pagination__item" href="http://localhost:1313/post/el_pais/">
-        <span class="pagination__label">Previous Post</span>
-        <span class="pagination__title">What cities appear more often in El País articles?</span>
-    </a>
-  
-
-  
-    <a class="pagination__item" href="http://localhost:1313/post/sni/">
-      <span class="pagination__label">Next Post</span>
-      <span class="pagination__title" >A quick look at the Mexican national system of researchers with Python</span>
-    </a>
-  
-</div>
-
-          
-          <footer class="post__footer">
+        </div>
+        <div class="article-nav">
             
-
-
-<div class="social-icons">
-  
-     
-    
-      <a
-        class="social-icons__link"
-        title="twitter"
-        href="https://twitter.com/ruydg"
-        target="_blank"
-        rel="me noopener"
-      >
-        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/twitter.svg')"></div>
-      </a>
-    
-  
-     
-    
-      <a
-        class="social-icons__link"
-        title="github"
-        href="https://github.com/rodogi"
-        target="_blank"
-        rel="me noopener"
-      >
-        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/github.svg')"></div>
-      </a>
-    
-  
-     
-    
-      <a
-        class="social-icons__link"
-        title="scholar"
-        href="https://scholar.google.com/citations?user=Qe5ab4gAAAAJ&amp;hl=en"
-        target="_blank"
-        rel="me noopener"
-      >
-        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/scholar.svg')"></div>
-      </a>
-    
-     
+                <a href="/post/el_pais/">← What cities appear most often in El País articles?</a>
+            
+            
+                <a href="/post/sni/">A quick look at Mexico’s National System of Researchers →</a>
+            
+        </div>
+    </article>
 </div>
-
-            <p></p>
-          </footer>
-          </div>
-      </div>
-      
-      <div class="toc-container">
-          
-        <nav id="TableOfContents">
-  <ul>
-    <li><a href="#personal-info">Personal info</a></li>
-    <li><a href="#use-package"><code>use-package</code></a></li>
-    <li><a href="#sensible-defaults">Sensible defaults</a></li>
-    <li><a href="#evil">Evil</a></li>
-    <li><a href="#ui">UI</a></li>
-    <li><a href="#spelling">Spelling</a></li>
-    <li><a href="#python">Python</a>
-      <ul>
-        <li><a href="#basics">Basics</a></li>
-        <li><a href="#elpy">Elpy</a></li>
-      </ul>
-    </li>
-    <li><a href="#org">Org</a>
-      <ul>
-        <li><a href="#general">General</a></li>
-        <li><a href="#display">Display</a></li>
-        <li><a href="#agenda">Agenda</a></li>
-        <li><a href="#capture">Capture</a></li>
-        <li><a href="#export">Export</a></li>
-      </ul>
-    </li>
-    <li><a href="#magit">Magit</a></li>
-    <li><a href="#helm">Helm</a></li>
-    <li><a href="#dired">Dired</a></li>
-    <li><a href="#projectile">Projectile</a></li>
-  </ul>
-</nav>
-      </div>
-      
-    </div>
-    
 
     </main>
     <footer>
     <div class="container">
-      <p>© 2025 Rodrigo Dorantes Gilardi. All rights reserved.</p>
+      <p>© 2026 Rodrigo Dorantes Gilardi. All rights reserved.</p>
     </div>
   </footer>
   </body>

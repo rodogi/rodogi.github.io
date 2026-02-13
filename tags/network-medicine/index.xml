@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Network Medicine on Rodrigo Dorantes Gilardi</title>
+    <link>https://rodogi.github.io/tags/network-medicine/</link>
+    <description>Recent content in Network Medicine on Rodrigo Dorantes Gilardi</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 01 Mar 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://rodogi.github.io/tags/network-medicine/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>NetMedPy</title>
+      <link>https://rodogi.github.io/research/netmedpy/</link>
+      <pubDate>Fri, 01 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://rodogi.github.io/research/netmedpy/</guid>
+      <description>&lt;p&gt;Network medicine views diseases as localized disruptions in networks of genes, proteins, and other molecular entities, offering a framework to understand how biological systems communicate and fail. NetMedPy is an open-source Python package that streamlines large-scale network medicine analyses, enabling researchers to evaluate network localization, compute proximity and separation between biological entities, and screen thousands of drug–disease pairs efficiently.&lt;/p&gt;&#xA;&lt;p&gt;The package extends traditional approaches by providing four built-in distance metrics (shortest paths, random walk, biased random walk, and communicability) and four null models (degree match, degree logarithmic binning, strength logarithmic binning, and uniform), while also supporting user-defined custom metrics. By leveraging precomputed distance matrices, NetMedPy optimizes calculations for large interactomes, making network medicine screening practical at scale.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
@@ -17,52 +17,41 @@
     <nav>
     <div class="container">
       
-        <a href="/">Home</a>
+        <a href="/">home</a>
       
-        <a href="/research">Research</a>
+        <a href="/research">research</a>
       
-        <a href="/resume/resume.pdf">CV</a>
+        <a href="/teaching">teaching</a>
+      
+        <a href="/post">blog</a>
+      
+        <a href="/cv">cv</a>
       
     </div>
   </nav>
     <main>
       
-    
-
-    <div class="flex-wrapper">
-      <div class="post__container">
-        <div class="post">
-          <header class="post__header">
-            <h1 id="post__title">I forgive your taxes</h1>
-            <time datetime="2019-10-02 00:00:00 -0500 -0500" class="post__date">Oct 2 2019</time> 
-          </header>
-          <article class="post__content">
-              
-<h2 id="overall">Overall<a class="anchor" href="#overall">#</a></h2>
-<p>My Friend and mentor <a href="https://scholar.google.com.mx/citations?user=Aoa-qxcAAAAJ&amp;hl=en#" 
+<div class="container">
+    <article class="research-article">
+        <div class="article-header">
+            <h1>I forgive your taxes</h1>
+            <div class="description">October 2, 2019 · Rodrigo Dorantes-Gilardi</div>
+        </div>
+        <div class="article-content">
+            <h2 id="overview">Overview</h2>
+<p>My friend and mentor <a href="https://scholar.google.com.mx/citations?user=Aoa-qxcAAAAJ&amp;hl=en" 
   
    target="_blank" rel="noreferrer noopener" 
->Chucho</a> told me about a <a href="https://privilegiosfiscales.fundar.org.mx/" 
+>Chucho</a> pointed me to a recently published <a href="https://privilegiosfiscales.fundar.org.mx/" 
   
    target="_blank" rel="noreferrer noopener" 
->table</a> of people who&rsquo;s taxes were forgiven between
-2007&ndash;2019 in Mexico came public recently. The information was compiled by Mexican association
-Fundar, and it includes the year of the tax exemption, the amount and the entity. Tax exemptions
-are classified in two types: cancellation and reduction.</p>
-<p>Here, I focus on real people and tax reductions. Another analysis should be made including tax
-cancellation and private companies. The time spans the presidency of three Mexican presidents, so
-let&rsquo;s see who was forgiving who and when, whenever I say forgiven I&rsquo;m really talking about a (in
-some cases huge) tax reduction.</p>
-<p>Three presidents:</p>
+>database</a> of tax exemptions granted in Mexico between 2007 and 2019. The data, compiled by the Mexican organization Fundar, includes the year, amount, and recipient of each exemption. Here I focus on tax reductions for individuals (a separate analysis could cover cancellations and corporate exemptions).</p>
+<p>The data spans three presidencies:</p>
 <ul>
-<li>Felipe Calderon Hinojosa (FCH): 2006&ndash;2012</li>
-<li>Enrique Peña Nieto (EPN): 2012&ndash;2018</li>
-<li>Andres Manuel Lopez Obrador (AMLO): 2018&ndash;</li>
+<li><strong>Felipe Calderón Hinojosa (FCH):</strong> 2006–2012</li>
+<li><strong>Enrique Peña Nieto (EPN):</strong> 2012–2018</li>
+<li><strong>Andrés Manuel López Obrador (AMLO):</strong> 2018–</li>
 </ul>
-<div class="table-caption">
-  <span class="table-number">Table 1</span>:
-  Amount forgiven In Million current Pesos
-</div>
 <table>
   <thead>
       <tr>
@@ -73,150 +62,65 @@ some cases huge) tax reduction.</p>
   </thead>
   <tbody>
       <tr>
-          <td>5716</td>
-          <td>5792</td>
-          <td>12</td>
+          <td>5,716 M</td>
+          <td>5,792 M</td>
+          <td>12 M</td>
       </tr>
   </tbody>
 </table>
-<p>The grand total of 12,000 Million pesos was forgiven between 2007 and 2019, with EPN and FCH being
-the most merciful with 5,802 M and 5,706 M, respectively. AMLO has forgiven only 12 M so far, let&rsquo;s
-see how this evolves next year in 2020.</p>
+<p>A combined <strong>12 billion pesos</strong> were forgiven, split almost evenly between FCH and EPN. AMLO’s total stood at just 12 million at the time of analysis.</p>
 <figure><img src="/images/sum_president.png"
-    alt="Figure 1: Amount forgiven per president"><figcaption>
-      <p>Figure 1: Amount forgiven per president</p>
+    alt="Figure 1: Total amount forgiven per president (million pesos)"><figcaption>
+      <p>Figure 1: Total amount forgiven per president (million pesos)</p>
     </figcaption>
 </figure>
 
-<p>When plotting the amount of pesos forgiven per year something struck me: The vast majority of the
-tax-exemptions were done the two years after FHC became president and one year after EPN. Could it
-be that this list of tax-exemptions is in actuality a list of debt payment?</p>
+<p>A striking pattern: the vast majority of exemptions under FCH occurred in his first two years, and under EPN in his first year alone. This raises the question of whether some exemptions were effectively debt settlements.</p>
 <figure><img src="/images/sum_year.png"
-    alt="Figure 2: Amount foriven per year"><figcaption>
-      <p>Figure 2: Amount foriven per year</p>
+    alt="Figure 2: Amount forgiven per year"><figcaption>
+      <p>Figure 2: Amount forgiven per year</p>
     </figcaption>
 </figure>
 
-<p>Let&rsquo;s now see the favorite people of each president.</p>
-<h2 id="felipe-calderón-hinojosa">Felipe Calderón Hinojosa<a class="anchor" href="#felipe-calderón-hinojosa">#</a></h2>
-<p>Felipe had a list of 1,290 friends to which he forgave a lot of dinero to. He forgave 96.6% of the
-total during his first two years of presidency. He was most merciful with Carlos Efrain De Jesus
-Cabal Peniche, to whom he forgave 500 M pesos. Second in the list is my home town local Miguel
-Fernando Valladares Garcia with 221 M pesos.</p>
+<h2 id="felipe-calderón-hinojosa">Felipe Calderón Hinojosa</h2>
+<p>FCH granted exemptions to 1,290 individuals, with 96.6% of the total concentrated in his first two years. The largest single exemption went to Carlos Efraín De Jesús Cabal Peniche (500 M pesos), followed by Miguel Fernando Valladares García (221 M pesos).</p>
 <figure><img src="/images/favs_fch.png"
-    alt="Figure 3: FCH favorite people"><figcaption>
-      <p>Figure 3: FCH favorite people</p>
+    alt="Figure 3: Top recipients under FCH"><figcaption>
+      <p>Figure 3: Top recipients under FCH</p>
     </figcaption>
 </figure>
 
-<h2 id="enrique-peña-nieto">Enrique Peña Nieto<a class="anchor" href="#enrique-peña-nieto">#</a></h2>
-<p>EPN had more friends; 4,352 to be exact. And he forgave 94% of the money in his first year as a
-president. He was indeed quick to repay his debts.</p>
+<h2 id="enrique-peña-nieto">Enrique Peña Nieto</h2>
+<p>EPN’s list was longer—4,352 individuals—with 94% of the total forgiven in his first year.</p>
 <figure><img src="/images/favs_epn.png"
-    alt="Figure 4: EPN favorite people"><figcaption>
-      <p>Figure 4: EPN favorite people</p>
+    alt="Figure 4: Top recipients under EPN"><figcaption>
+      <p>Figure 4: Top recipients under EPN</p>
     </figcaption>
 </figure>
 
-<h2 id="favorite-people-overall">Favorite people overall<a class="anchor" href="#favorite-people-overall">#</a></h2>
-<p>There is a list of 133 people that have been friends with both presidents. Interestingly, these
-people are not friends with AMLO, as they weren&rsquo;t forgiven any money during his first year as a
-President. Here is when they where forgiven their taxes.</p>
+<h2 id="overlap-between-presidencies">Overlap between presidencies</h2>
+<p>133 individuals received exemptions under both FCH and EPN. Notably, none of these individuals appeared in AMLO’s first-year records.</p>
 <figure><img src="/images/mutual.png"
-    alt="Figure 5: Mutual friends of FCH and EPN"><figcaption>
-      <p>Figure 5: Mutual friends of FCH and EPN</p>
+    alt="Figure 5: Individuals who received exemptions under both FCH and EPN"><figcaption>
+      <p>Figure 5: Individuals who received exemptions under both FCH and EPN</p>
     </figcaption>
 </figure>
 
 
-
-              
-          </article>
-          
-
- <div class="pagination">
-  
-    <a class="pagination__item" href="http://localhost:1313/post/sni/">
-        <span class="pagination__label">Previous Post</span>
-        <span class="pagination__title">A quick look at the Mexican national system of researchers with Python</span>
-    </a>
-  
-
-  
-</div>
-
-          
-          <footer class="post__footer">
+        </div>
+        <div class="article-nav">
             
-
-
-<div class="social-icons">
-  
-     
-    
-      <a
-        class="social-icons__link"
-        title="twitter"
-        href="https://twitter.com/ruydg"
-        target="_blank"
-        rel="me noopener"
-      >
-        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/twitter.svg')"></div>
-      </a>
-    
-  
-     
-    
-      <a
-        class="social-icons__link"
-        title="github"
-        href="https://github.com/rodogi"
-        target="_blank"
-        rel="me noopener"
-      >
-        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/github.svg')"></div>
-      </a>
-    
-  
-     
-    
-      <a
-        class="social-icons__link"
-        title="scholar"
-        href="https://scholar.google.com/citations?user=Qe5ab4gAAAAJ&amp;hl=en"
-        target="_blank"
-        rel="me noopener"
-      >
-        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/scholar.svg')"></div>
-      </a>
-    
-     
+                <a href="/post/sni/">← A quick look at Mexico’s National System of Researchers</a>
+            
+            
+        </div>
+    </article>
 </div>
-
-            <p></p>
-          </footer>
-          </div>
-      </div>
-      
-      <div class="toc-container">
-          
-        <nav id="TableOfContents">
-  <ul>
-    <li><a href="#overall">Overall</a></li>
-    <li><a href="#felipe-calderón-hinojosa">Felipe Calderón Hinojosa</a></li>
-    <li><a href="#enrique-peña-nieto">Enrique Peña Nieto</a></li>
-    <li><a href="#favorite-people-overall">Favorite people overall</a></li>
-  </ul>
-</nav>
-      </div>
-      
-    </div>
-    
 
     </main>
     <footer>
     <div class="container">
-      <p>© 2025 Rodrigo Dorantes Gilardi. All rights reserved.</p>
+      <p>© 2026 Rodrigo Dorantes Gilardi. All rights reserved.</p>
     </div>
   </footer>
   </body>

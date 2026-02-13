@@ -2,23 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Bio on Rodrigo Dorantes Gilardi</title>
-    <link>http://localhost:1313/tags/bio/</link>
+    <link>https://rodogi.github.io/tags/bio/</link>
     <description>Recent content in Bio on Rodrigo Dorantes Gilardi</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <atom:link href="http://localhost:1313/tags/bio/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 01 Mar 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://rodogi.github.io/tags/bio/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>NetMedPy</title>
+      <link>https://rodogi.github.io/research/netmedpy/</link>
+      <pubDate>Fri, 01 Mar 2024 00:00:00 +0000</pubDate>
+      <guid>https://rodogi.github.io/research/netmedpy/</guid>
+      <description>&lt;p&gt;Network medicine views diseases as localized disruptions in networks of genes, proteins, and other molecular entities, offering a framework to understand how biological systems communicate and fail. NetMedPy is an open-source Python package that streamlines large-scale network medicine analyses, enabling researchers to evaluate network localization, compute proximity and separation between biological entities, and screen thousands of drug–disease pairs efficiently.&lt;/p&gt;&#xA;&lt;p&gt;The package extends traditional approaches by providing four built-in distance metrics (shortest paths, random walk, biased random walk, and communicability) and four null models (degree match, degree logarithmic binning, strength logarithmic binning, and uniform), while also supporting user-defined custom metrics. By leveraging precomputed distance matrices, NetMedPy optimizes calculations for large interactomes, making network medicine screening practical at scale.&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Gene co-expression in breast cancer</title>
-      <link>http://localhost:1313/research/gene-coexpression/</link>
+      <link>https://rodogi.github.io/research/gene-coexpression/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/research/gene-coexpression/</guid>
+      <guid>https://rodogi.github.io/research/gene-coexpression/</guid>
       <description>&lt;p&gt;In this study, we used a multilayer network approach to uncover fundamental structural principles in gene co-expression networks (GCNs) that are disrupted in breast cancer. By analyzing both healthy and cancerous gene co-expression networks, we identified key differences in connectivity patterns, revealing how healthy cells maintain a complex network of gene interactions across chromosomes. In contrast, the breast cancer network exhibits a loss of these inter-chromosomal connections, leading to a simpler, more localized structure confined largely to genes within the same chromosome.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Protein Structure</title>
-      <link>http://localhost:1313/research/protein-networks/</link>
+      <link>https://rodogi.github.io/research/protein-networks/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/research/protein-networks/</guid>
+      <guid>https://rodogi.github.io/research/protein-networks/</guid>
       <description>&lt;p&gt;This project looks into the structural and functional shifts in proteins caused by mutations, exploring how such changes impact protein behavior. By constructing detailed amino acid networks for five proteins, we analyzed how mutations at specific positions alter both structure and function, revealing a strong relationship between structural sensitivity and functional outcomes. Our approach combines network science with protein modeling, allowing us to predict functionally sensitive regions based solely on structural perturbations.&lt;/p&gt;</description>
     </item>
   </channel>

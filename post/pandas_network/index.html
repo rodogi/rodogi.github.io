@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en-us">
-  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     
@@ -17,156 +17,77 @@
     <nav>
     <div class="container">
       
-        <a href="/">Home</a>
+        <a href="/">home</a>
       
-        <a href="/research">Research</a>
+        <a href="/research">research</a>
       
-        <a href="/resume/resume.pdf">CV</a>
+        <a href="/teaching">teaching</a>
+      
+        <a href="/post">blog</a>
+      
+        <a href="/cv">cv</a>
       
     </div>
   </nav>
     <main>
       
-    
-
-    <div class="flex-wrapper">
-      <div class="post__container">
-        <div class="post">
-          <header class="post__header">
-            <h1 id="post__title">Using pandas for network analysis</h1>
-            <time datetime="2019-05-15 00:00:00 -0500 -0500" class="post__date">May 15 2019</time> 
-          </header>
-          <article class="post__content">
-              
-<h2 id="network-analysis">Network analysis<a class="anchor" href="#network-analysis">#</a></h2>
+<div class="container">
+    <article class="research-article">
+        <div class="article-header">
+            <h1>Using pandas for network analysis</h1>
+            <div class="description">May 15, 2019 · Rodrigo Dorantes-Gilardi</div>
+        </div>
+        <div class="article-content">
+            <h2 id="the-context">The context</h2>
 <p><a href="https://networkx.github.io/" 
   
    target="_blank" rel="noreferrer noopener" 
->Networkx</a> is a well known python module for the analysis of networks. I used it a lot during my PhD
-for the creation of protein networks and to compare them. I stopped using it for a while after I moved
-to the industry as a data scientist.</p>
-<p>My job consisted 90% of the time to process data (pre-process, clean, feature creation, wrangling)
-before modeling anything. Pandas is indeed a data-analysis library for python, and a very good one.</p>
-<h2 id="problem">Problem<a class="anchor" href="#problem">#</a></h2>
-<p>I came back to the academy not so long ago to work on gene regulatory networks and decided to dust
-my networkx skills. When doing network analysis, it is often the goal to deal with the structure
-(or topology) of the network. For this, <code>networkx</code> is great.</p>
-<p>However, I need to deal also with the attributes of nodes and edges, with make the task more
-complex.</p>
-<p>For instance, a simple task like asking <code>networkx</code> what is the node with the maximum degree becomes
-this, where G is a network of size 20,000:</p>
+>Networkx</a> is the most popular Python library for network analysis. I used it extensively during my PhD for building and comparing protein networks, then set it aside during a stint in industry where pandas dominated my workflow.</p>
+<h2 id="the-problem">The problem</h2>
+<p>Coming back to academia to work on gene regulatory networks, I found that networkx is excellent for structural (topological) analysis, but handling node and edge attributes can get verbose.</p>
+<p>For example, finding the node with the maximum degree in a 20,000-node network:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>degree_sequence <span style="color:#f92672">=</span> sorted([d <span style="color:#66d9ef">for</span> n, d <span style="color:#f92672">in</span> G<span style="color:#f92672">.</span>degree()], reverse<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)
 </span></span><span style="display:flex;"><span>dmax <span style="color:#f92672">=</span> max(degree_sequence)
-</span></span></code></pre></div><p>Or if we want to know the name of the node as well:</p>
+</span></span></code></pre></div><p>Or to also retrieve the node name:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>nmax, dmax <span style="color:#f92672">=</span> sorted(G<span style="color:#f92672">.</span>degree, key<span style="color:#f92672">=</span><span style="color:#66d9ef">lambda</span> x: x[<span style="color:#ae81ff">1</span>], reverse<span style="color:#f92672">=</span><span style="color:#66d9ef">True</span>)[<span style="color:#ae81ff">0</span>]
-</span></span></code></pre></div><p>In my opinion, both ways are a bit too verbose for such an important network parameter.</p>
-<h2 id="pandas-to-the-rescue">Pandas to the rescue<a class="anchor" href="#pandas-to-the-rescue">#</a></h2>
-<p>To get the max degree of network, we used G.degree which is a <code>DegreeView</code> class in networkx: a
-dict-like structure. Other classes like <code>DegreeView</code> are:</p>
-<ul>
-<li><code>NodeView</code></li>
-<li><code>EdgeView</code></li>
-<li><code>NodeDataView</code></li>
-<li><code>EdgeDataView</code></li>
-</ul>
-<p>As you can see, dict-like structures are the way to view the network attributes in
-networkx. Dict-like structures are not optimal for data analysis, but they are just fine to define a
-pandas dataframe with little code:</p>
+</span></span></code></pre></div><p>Both approaches feel heavier than they should be for such a basic query.</p>
+<h2 id="pandas-to-the-rescue">Pandas to the rescue</h2>
+<p>Networkx exposes network attributes through dict-like view objects: <code>DegreeView</code>, <code>NodeView</code>, <code>EdgeView</code>, <code>NodeDataView</code>, and <code>EdgeDataView</code>. These convert directly into pandas DataFrames:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># data frame with edgelist</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Edge list</span>
 </span></span><span style="display:flex;"><span>df_edges <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame(G<span style="color:#f92672">.</span>edges(), columns<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;node_1&#34;</span>, <span style="color:#e6db74">&#34;node_2&#34;</span>])
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># data frame with edgelist + edge attributes</span>
-</span></span><span style="display:flex;"><span>df_edges_data <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame(G<span style="color:#f92672">.</span>edges(data<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;weight&#34;</span>), columns<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;node_1&#34;</span>, <span style="color:#e6db74">&#34;node_2&#34;</span>, <span style="color:#e6db74">&#34;weight&#34;</span>])
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Edge list with attributes</span>
+</span></span><span style="display:flex;"><span>df_edges_data <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame(
+</span></span><span style="display:flex;"><span>    G<span style="color:#f92672">.</span>edges(data<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;weight&#34;</span>), columns<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;node_1&#34;</span>, <span style="color:#e6db74">&#34;node_2&#34;</span>, <span style="color:#e6db74">&#34;weight&#34;</span>]
+</span></span><span style="display:flex;"><span>)
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># degree dataframe</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Degree</span>
 </span></span><span style="display:flex;"><span>df_degree <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame(G<span style="color:#f92672">.</span>degree(), columns<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;node&#34;</span>, <span style="color:#e6db74">&#34;degree&#34;</span>])
 </span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># weighted degree dataframe</span>
-</span></span><span style="display:flex;"><span>df_weighted_degree <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame(G<span style="color:#f92672">.</span>degree(weight<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;weight&#34;</span>), columns<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;node&#34;</span>, <span style="color:#e6db74">&#34;weighted degree&#34;</span>])
-</span></span></code></pre></div>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Weighted degree</span>
+</span></span><span style="display:flex;"><span>df_weighted_degree <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame(
+</span></span><span style="display:flex;"><span>    G<span style="color:#f92672">.</span>degree(weight<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;weight&#34;</span>), columns<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#34;node&#34;</span>, <span style="color:#e6db74">&#34;weighted_degree&#34;</span>]
+</span></span><span style="display:flex;"><span>)
+</span></span></code></pre></div><p>From here, finding the max-degree node is just <code>df_degree.sort_values(&quot;degree&quot;).tail(1)</code>—clean, readable, and idiomatic.</p>
 
-              
-          </article>
-          
-
- <div class="pagination">
-  
-    <a class="pagination__item" href="http://localhost:1313/post/networkx_arrows/">
-        <span class="pagination__label">Previous Post</span>
-        <span class="pagination__title">Adding arrows to networkx</span>
-    </a>
-  
-
-  
-    <a class="pagination__item" href="http://localhost:1313/post/graph-tool/">
-      <span class="pagination__label">Next Post</span>
-      <span class="pagination__title" >Create a network with Graph-tool and Pandas</span>
-    </a>
-  
-</div>
-
-          
-          <footer class="post__footer">
+        </div>
+        <div class="article-nav">
             
-
-
-<div class="social-icons">
-  
-     
-    
-      <a
-        class="social-icons__link"
-        title="twitter"
-        href="https://twitter.com/ruydg"
-        target="_blank"
-        rel="me noopener"
-      >
-        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/twitter.svg')"></div>
-      </a>
-    
-  
-     
-    
-      <a
-        class="social-icons__link"
-        title="github"
-        href="https://github.com/rodogi"
-        target="_blank"
-        rel="me noopener"
-      >
-        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/github.svg')"></div>
-      </a>
-    
-  
-     
-    
-      <a
-        class="social-icons__link"
-        title="scholar"
-        href="https://scholar.google.com/citations?user=Qe5ab4gAAAAJ&amp;hl=en"
-        target="_blank"
-        rel="me noopener"
-      >
-        <div class="social-icons__icon" style="background-image: url('http://localhost:1313/svg/scholar.svg')"></div>
-      </a>
-    
-     
+                <a href="/post/networkx_arrows/">← Adding arrows to networkx</a>
+            
+            
+                <a href="/post/graph-tool/">Create a network with graph-tool and pandas →</a>
+            
+        </div>
+    </article>
 </div>
-
-            <p></p>
-          </footer>
-          </div>
-      </div>
-      
-    </div>
-    
 
     </main>
     <footer>
     <div class="container">
-      <p>© 2025 Rodrigo Dorantes Gilardi. All rights reserved.</p>
+      <p>© 2026 Rodrigo Dorantes Gilardi. All rights reserved.</p>
     </div>
   </footer>
   </body>

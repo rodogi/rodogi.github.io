@@ -2,18 +2,18 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Venue Effect on Rodrigo Dorantes Gilardi</title>
-    <link>http://localhost:1313/tags/venue-effect/</link>
+    <link>https://rodogi.github.io/tags/venue-effect/</link>
     <description>Recent content in Venue Effect on Rodrigo Dorantes Gilardi</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 15 Jan 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="http://localhost:1313/tags/venue-effect/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://rodogi.github.io/tags/venue-effect/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>The venue effect</title>
-      <link>http://localhost:1313/research/venue/</link>
+      <title>The Venue Effect</title>
+      <link>https://rodogi.github.io/research/venue/</link>
       <pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/research/venue/</guid>
-      <description>&lt;p&gt;This project investigates the &amp;ldquo;venue effect,&amp;rdquo; a phenomenon where high-prestige publication or exhibition platforms significantly shape creative careers. By reconstructing the professional journeys of thousands of scientists and artists, we reveal how prominent venues influence future opportunities and recognition. We find that, while top venues amplify the careers of those granted access, they also reinforce existing inequalities, with benefits unevenly distributed across gender, geography, and career stage.&lt;/p&gt;&#xA;&lt;p&gt;Using large datasets and advanced statistical methods, we quantify this venue effect in both science and art. In science, top journals boost citations and productivity, particularly for mid-career and senior researchers. In the arts, prestigious biennials and exhibitions increase opportunities, especially for early-career artists, offering them greater visibility. This work provides a nuanced understanding of how selective access to prestigious venues shapes professional trajectories, highlighting the need for inclusive practices that can mitigate the reinforcement of these hierarchies.&lt;/p&gt;</description>
+      <guid>https://rodogi.github.io/research/venue/</guid>
+      <description>&lt;p&gt;Prominent venues—top journals in science, major biennials in art—act as gatekeepers that shape career trajectories. But who actually benefits from gaining access to these platforms? In this work, we reconstruct the full careers of 3.4 million scientists across physics, chemistry, biology, and sociology, alongside visual and performing artists, to quantify the causal impact of venue access on downstream career outcomes.&lt;/p&gt;&#xA;&lt;p&gt;Using heterogeneous difference-in-differences analysis, we document a statistically significant and long-lasting venue effect in both science and the arts, and show that it is a relatively recent phenomenon—becoming a prominent force only after the 1990s. Critically, the benefits of venue access are neither universal nor equitable: they are modulated by career stage, gender, and geography.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

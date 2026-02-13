@@ -2,16 +2,16 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Co-Expression on Rodrigo Dorantes Gilardi</title>
-    <link>http://localhost:1313/tags/co-expression/</link>
+    <link>https://rodogi.github.io/tags/co-expression/</link>
     <description>Recent content in Co-Expression on Rodrigo Dorantes Gilardi</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <atom:link href="http://localhost:1313/tags/co-expression/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://rodogi.github.io/tags/co-expression/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Gene co-expression in breast cancer</title>
-      <link>http://localhost:1313/research/gene-coexpression/</link>
+      <link>https://rodogi.github.io/research/gene-coexpression/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>http://localhost:1313/research/gene-coexpression/</guid>
+      <guid>https://rodogi.github.io/research/gene-coexpression/</guid>
       <description>&lt;p&gt;In this study, we used a multilayer network approach to uncover fundamental structural principles in gene co-expression networks (GCNs) that are disrupted in breast cancer. By analyzing both healthy and cancerous gene co-expression networks, we identified key differences in connectivity patterns, revealing how healthy cells maintain a complex network of gene interactions across chromosomes. In contrast, the breast cancer network exhibits a loss of these inter-chromosomal connections, leading to a simpler, more localized structure confined largely to genes within the same chromosome.&lt;/p&gt;</description>
     </item>
   </channel>
